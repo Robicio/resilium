@@ -770,20 +770,20 @@
           </p>
 </div>
 <div aria-label="Vyberte cílovou skupinu, o které se chcete dozvědět více" class="segment-selector">
-<a class="segment-tab active" data-segment="companies" href="firmy-a-organizace.html">
+<button aria-controls="segmentPanel" aria-expanded="false" class="segment-tab" data-segment="companies" type="button">
 <span class="segment-tab-copy"><strong>Firmy a organizace</strong><span>Výkon, bezpečnost, klient, reputace a připravenost týmu.</span></span>
-<span class="segment-tab-action">Dozvědět se více <span aria-hidden="true">→</span></span>
-</a>
-<a class="segment-tab" data-segment="leaders" href="lideri-a-manazeri.html">
+<span class="segment-tab-action"><span class="segment-action-label">Zobrazit přehled</span><span aria-hidden="true" class="segment-action-icon">↓</span></span>
+</button>
+<button aria-controls="segmentPanel" aria-expanded="false" class="segment-tab" data-segment="leaders" type="button">
 <span class="segment-tab-copy"><strong>Lídři a manažeři</strong><span>Rozhodování, autorita, konflikty a dopad reakce na tým.</span></span>
-<span class="segment-tab-action">Dozvědět se více <span aria-hidden="true">→</span></span>
-</a>
-<a class="segment-tab" data-segment="individuals" href="jednotlivci.html">
+<span class="segment-tab-action"><span class="segment-action-label">Zobrazit přehled</span><span aria-hidden="true" class="segment-action-icon">↓</span></span>
+</button>
+<button aria-controls="segmentPanel" aria-expanded="false" class="segment-tab" data-segment="individuals" type="button">
 <span class="segment-tab-copy"><strong>Jednotlivci</strong><span>Ztuhnutí, ústup, prudká reakce, kritika a hranice.</span></span>
-<span class="segment-tab-action">Dozvědět se více <span aria-hidden="true">→</span></span>
-</a>
+<span class="segment-tab-action"><span class="segment-action-label">Zobrazit přehled</span><span aria-hidden="true" class="segment-action-icon">↓</span></span>
+</button>
 </div>
-<div class="segment-panel" id="segmentPanel">
+<div aria-labelledby="segmentHeadline" class="segment-panel" hidden id="segmentPanel" role="region">
 <div>
 <p class="eyebrow" id="segmentEyebrow">Firmy a organizace</p>
 <h2 id="segmentHeadline">Vaši lidé znají správný postup. Dokážou jej použít i pod tlakem?</h2>
@@ -798,6 +798,7 @@
 </div>
 </div>
 <div class="segment-situations" id="segmentSituations"></div>
+<button class="segment-panel-close" type="button">Skrýt přehled <span aria-hidden="true">↑</span></button>
 </div>
 </div>
 </section>
@@ -1295,18 +1296,18 @@
       });
     }
 
-    function setSegment(segment, scrollToPanel = false) {
+    const segmentSelector = document.querySelector(".segment-selector");
+    const segmentTabs = [...document.querySelectorAll(".segment-tab")];
+    const segmentPanelClose = document.querySelector(".segment-panel-close");
+    const mobileSegmentQuery = window.matchMedia("(max-width: 900px)");
+    let expandedSegment = null;
+
+    function setSegment(segment) {
       activeSegment = segment;
       const data = segmentData[segment];
 
-      document.querySelectorAll("[data-segment]").forEach(element => {
-        if (
-          element.classList.contains("audience-chip") ||
-          element.classList.contains("segment-tab") ||
-          element.closest(".form-segment")
-        ) {
-          element.classList.toggle("active", element.dataset.segment === segment);
-        }
+      document.querySelectorAll(".form-segment button").forEach(element => {
+        element.classList.toggle("active", element.dataset.segment === segment);
       });
 
       panelEyebrow.textContent = data.eyebrow;
@@ -1325,28 +1326,75 @@
       formNote.textContent = data.note;
       segmentInput.value = segment;
       updateDynamicFields(segment);
+    }
 
-      if (scrollToPanel) {
-        document.getElementById("segmenty").scrollIntoView({ behavior: "smooth", block: "start" });
+    function placeSegmentPanel(control) {
+      if (mobileSegmentQuery.matches) {
+        control.insertAdjacentElement("afterend", segmentPanel);
+      } else {
+        segmentSelector.insertAdjacentElement("afterend", segmentPanel);
       }
     }
 
-    document.querySelectorAll(".audience-chip").forEach(button => {
-      button.addEventListener("click", () => setSegment(button.dataset.segment, button.classList.contains("audience-chip")));
-    });
+    function closeSegmentPanel(restoreFocus = false) {
+      const previousControl = segmentTabs.find(tab => tab.dataset.segment === expandedSegment);
+      expandedSegment = null;
+      segmentPanel.hidden = true;
+      segmentTabs.forEach(tab => {
+        tab.classList.remove("active");
+        tab.setAttribute("aria-expanded", "false");
+        tab.querySelector(".segment-action-label").textContent = "Zobrazit přehled";
+        tab.querySelector(".segment-action-icon").textContent = "↓";
+      });
+      segmentSelector.insertAdjacentElement("afterend", segmentPanel);
+      if (restoreFocus && previousControl) previousControl.focus();
+    }
 
-    document.querySelectorAll(".segment-tab").forEach(link => {
-      link.addEventListener("mouseenter", () => setSegment(link.dataset.segment));
-      link.addEventListener("focus", () => setSegment(link.dataset.segment));
+    function toggleSegmentPanel(control) {
+      const segment = control.dataset.segment;
+      if (expandedSegment === segment && !segmentPanel.hidden) {
+        closeSegmentPanel(true);
+        return;
+      }
+
+      setSegment(segment);
+      expandedSegment = segment;
+      segmentTabs.forEach(tab => {
+        const isExpanded = tab === control;
+        tab.classList.toggle("active", isExpanded);
+        tab.setAttribute("aria-expanded", String(isExpanded));
+        tab.querySelector(".segment-action-label").textContent = isExpanded ? "Skrýt přehled" : "Zobrazit přehled";
+        tab.querySelector(".segment-action-icon").textContent = isExpanded ? "↑" : "↓";
+      });
+      placeSegmentPanel(control);
+      segmentPanel.hidden = false;
+
+      if (mobileSegmentQuery.matches) {
+        requestAnimationFrame(() => segmentPanel.scrollIntoView({ behavior: "smooth", block: "nearest" }));
+      }
+    }
+
+    segmentTabs.forEach(button => {
+      button.addEventListener("click", () => toggleSegmentPanel(button));
     });
 
     document.querySelectorAll(".form-segment button").forEach(button => {
       button.addEventListener("click", () => setSegment(button.dataset.segment));
     });
 
-    document.querySelectorAll(".segment-link").forEach(link => {
-      link.addEventListener("click", () => setSegment(link.dataset.segment));
-    });
+    segmentPanelClose.addEventListener("click", () => closeSegmentPanel(true));
+
+    const repositionSegmentPanel = () => {
+      if (!expandedSegment || segmentPanel.hidden) return;
+      const control = segmentTabs.find(tab => tab.dataset.segment === expandedSegment);
+      if (control) placeSegmentPanel(control);
+    };
+
+    if (mobileSegmentQuery.addEventListener) {
+      mobileSegmentQuery.addEventListener("change", repositionSegmentPanel);
+    } else {
+      mobileSegmentQuery.addListener(repositionSegmentPanel);
+    }
 
 
     const form = document.getElementById("leadForm");
