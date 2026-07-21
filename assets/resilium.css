@@ -3361,13 +3361,14 @@ details[open] summary::after {
 
 .btn-primary,
 .primary {
-  color: var(--white);
-  background: #c65312;
+  color: var(--ink);
+  background: var(--brand);
 }
 
 .btn-primary:hover,
 .primary:hover {
-  background: #a9410b;
+  color: var(--ink);
+  background: #e97a24;
 }
 
 footer,
@@ -3505,8 +3506,8 @@ footer,
   align-items: center;
   gap: 10px;
   border-radius: 999px;
-  color: var(--white);
-  background: #c65312;
+  color: var(--ink);
+  background: var(--brand);
   font-size: 0.84rem;
   font-weight: 750;
   line-height: 1;
@@ -3519,7 +3520,7 @@ footer,
 }
 
 .segment-tab:hover .segment-tab-action {
-  background: #a9410b;
+  background: #e97a24;
 }
 
 .segment-tab:hover .segment-tab-action span {
