@@ -772,15 +772,15 @@
 <div aria-label="Vyberte cílovou skupinu, o které se chcete dozvědět více" class="segment-selector">
 <button aria-controls="segmentPanel" aria-expanded="false" class="segment-tab" data-segment="companies" type="button">
 <span class="segment-tab-copy"><strong>Firmy a organizace</strong><span>Výkon, bezpečnost, klient, reputace a připravenost týmu.</span></span>
-<span class="segment-tab-action"><span class="segment-action-label">Zobrazit přehled</span><span aria-hidden="true" class="segment-action-icon">↓</span></span>
+<span class="segment-tab-action"><span class="segment-action-label">Jak Resilium pomáhá</span><span aria-hidden="true" class="segment-action-icon">↓</span></span>
 </button>
 <button aria-controls="segmentPanel" aria-expanded="false" class="segment-tab" data-segment="leaders" type="button">
 <span class="segment-tab-copy"><strong>Lídři a manažeři</strong><span>Rozhodování, autorita, konflikty a dopad reakce na tým.</span></span>
-<span class="segment-tab-action"><span class="segment-action-label">Zobrazit přehled</span><span aria-hidden="true" class="segment-action-icon">↓</span></span>
+<span class="segment-tab-action"><span class="segment-action-label">Jak Resilium pomáhá</span><span aria-hidden="true" class="segment-action-icon">↓</span></span>
 </button>
 <button aria-controls="segmentPanel" aria-expanded="false" class="segment-tab" data-segment="individuals" type="button">
 <span class="segment-tab-copy"><strong>Jednotlivci</strong><span>Ztuhnutí, ústup, prudká reakce, kritika a hranice.</span></span>
-<span class="segment-tab-action"><span class="segment-action-label">Zobrazit přehled</span><span aria-hidden="true" class="segment-action-icon">↓</span></span>
+<span class="segment-tab-action"><span class="segment-action-label">Jak Resilium pomáhá</span><span aria-hidden="true" class="segment-action-icon">↓</span></span>
 </button>
 </div>
 <div aria-labelledby="segmentHeadline" class="segment-panel" hidden id="segmentPanel" role="region">
@@ -798,7 +798,7 @@
 </div>
 </div>
 <div class="segment-situations" id="segmentSituations"></div>
-<button class="segment-panel-close" type="button">Skrýt přehled <span aria-hidden="true">↑</span></button>
+<button class="segment-panel-close" type="button">Skrýt informace <span aria-hidden="true">↑</span></button>
 </div>
 </div>
 </section>
@@ -1343,7 +1343,7 @@
       segmentTabs.forEach(tab => {
         tab.classList.remove("active");
         tab.setAttribute("aria-expanded", "false");
-        tab.querySelector(".segment-action-label").textContent = "Zobrazit přehled";
+        tab.querySelector(".segment-action-label").textContent = "Jak Resilium pomáhá";
         tab.querySelector(".segment-action-icon").textContent = "↓";
       });
       segmentSelector.insertAdjacentElement("afterend", segmentPanel);
@@ -1363,7 +1363,7 @@
         const isExpanded = tab === control;
         tab.classList.toggle("active", isExpanded);
         tab.setAttribute("aria-expanded", String(isExpanded));
-        tab.querySelector(".segment-action-label").textContent = isExpanded ? "Skrýt přehled" : "Zobrazit přehled";
+        tab.querySelector(".segment-action-label").textContent = isExpanded ? "Skrýt informace" : "Jak Resilium pomáhá";
         tab.querySelector(".segment-action-icon").textContent = isExpanded ? "↑" : "↓";
       });
       placeSegmentPanel(control);
