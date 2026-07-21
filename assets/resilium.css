@@ -3315,6 +3315,9 @@ details[open] summary::after {
 :root {
   --dark-readable: #e9edef;
   --dark-accent-readable: #ffe7d6;
+  --cta-bg: #f4852c;
+  --cta-bg-hover: #e97a24;
+  --cta-ink: #252e35;
 }
 
 .section-dark p,
@@ -3361,14 +3364,14 @@ details[open] summary::after {
 
 .btn-primary,
 .primary {
-  color: var(--ink);
-  background: var(--brand);
+  color: var(--cta-ink);
+  background: var(--cta-bg);
 }
 
 .btn-primary:hover,
 .primary:hover {
-  color: var(--ink);
-  background: #e97a24;
+  color: var(--cta-ink);
+  background: var(--cta-bg-hover);
 }
 
 footer,
@@ -3506,8 +3509,8 @@ footer,
   align-items: center;
   gap: 10px;
   border-radius: 999px;
-  color: var(--ink);
-  background: var(--brand);
+  color: var(--cta-ink);
+  background: var(--cta-bg);
   font-size: 0.84rem;
   font-weight: 750;
   line-height: 1;
@@ -3520,7 +3523,7 @@ footer,
 }
 
 .segment-tab:hover .segment-tab-action {
-  background: #e97a24;
+  background: var(--cta-bg-hover);
 }
 
 .segment-tab:hover .segment-tab-action span {
