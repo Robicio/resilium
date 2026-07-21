@@ -1,0 +1,69 @@
+(function () {
+  const toggle = document.querySelector(".menu-toggle");
+  const menu = document.querySelector(".nav-links, .navlinks");
+
+  if (toggle && menu) {
+    const closeMenu = () => {
+      menu.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    };
+
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      menu.classList.toggle("open", !isOpen);
+      toggle.setAttribute("aria-expanded", String(!isOpen));
+    });
+
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+        toggle.focus();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+        closeMenu();
+      }
+    });
+  }
+
+  document.querySelectorAll("form[data-mailto-form]").forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (!form.reportValidity()) return;
+
+      const rows = [];
+      form.querySelectorAll("input, select, textarea").forEach((field) => {
+        if (!field.value || field.type === "submit" || field.type === "button") return;
+
+        const label = field.id
+          ? form.querySelector(`label[for="${field.id}"]`)
+          : null;
+        rows.push(`${label ? label.textContent.trim() : field.name || "Údaj"}: ${field.value}`);
+      });
+
+      const subject = form.dataset.subject || "Poptávka z webu Resilium";
+      const href = `mailto:info@allprosys.cz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(rows.join("\n\n"))}`;
+      window.location.href = href;
+    });
+  });
+
+  const stickyCta = document.querySelector(".mobile-cta");
+  const hero = document.querySelector(".hero");
+
+  if (stickyCta && hero) {
+    const updateStickyCta = () => {
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      stickyCta.classList.toggle("visible", heroBottom < 80);
+    };
+
+    updateStickyCta();
+    window.addEventListener("scroll", updateStickyCta, { passive: true });
+  }
+})();
