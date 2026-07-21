@@ -761,19 +761,19 @@
             jiná role manažera a jiná osobní zkušenost člověka mimo práci.
           </p>
 </div>
-<div class="segment-selector" role="tablist">
-<button aria-selected="true" class="segment-tab active" data-segment="companies" role="tab">
-<strong>Firmy a organizace</strong>
-<span>Výkon, bezpečnost, klient, reputace a připravenost týmu.</span>
-</button>
-<button aria-selected="false" class="segment-tab" data-segment="leaders" role="tab">
-<strong>Lídři a manažeři</strong>
-<span>Rozhodování, autorita, konflikty a dopad reakce na tým.</span>
-</button>
-<button aria-selected="false" class="segment-tab" data-segment="individuals" role="tab">
-<strong>Jednotlivci</strong>
-<span>Ztuhnutí, ústup, prudká reakce, kritika a hranice.</span>
-</button>
+<div aria-label="Vyberte cílovou skupinu a zobrazte její detail" class="segment-selector">
+<a class="segment-tab active" data-segment="companies" href="firmy-a-organizace.html">
+<span class="segment-tab-copy"><strong>Firmy a organizace</strong><span>Výkon, bezpečnost, klient, reputace a připravenost týmu.</span></span>
+<span class="segment-tab-action">Zobrazit detail <span aria-hidden="true">→</span></span>
+</a>
+<a class="segment-tab" data-segment="leaders" href="lideri-a-manazeri.html">
+<span class="segment-tab-copy"><strong>Lídři a manažeři</strong><span>Rozhodování, autorita, konflikty a dopad reakce na tým.</span></span>
+<span class="segment-tab-action">Zobrazit detail <span aria-hidden="true">→</span></span>
+</a>
+<a class="segment-tab" data-segment="individuals" href="jednotlivci.html">
+<span class="segment-tab-copy"><strong>Jednotlivci</strong><span>Ztuhnutí, ústup, prudká reakce, kritika a hranice.</span></span>
+<span class="segment-tab-action">Zobrazit detail <span aria-hidden="true">→</span></span>
+</a>
 </div>
 <div class="segment-panel" id="segmentPanel">
 <div>
@@ -1297,9 +1297,6 @@
           element.closest(".form-segment")
         ) {
           element.classList.toggle("active", element.dataset.segment === segment);
-          if (element.classList.contains("segment-tab")) {
-            element.setAttribute("aria-selected", element.dataset.segment === segment ? "true" : "false");
-          }
         }
       });
 
@@ -1325,8 +1322,13 @@
       }
     }
 
-    document.querySelectorAll(".audience-chip, .segment-tab").forEach(button => {
+    document.querySelectorAll(".audience-chip").forEach(button => {
       button.addEventListener("click", () => setSegment(button.dataset.segment, button.classList.contains("audience-chip")));
+    });
+
+    document.querySelectorAll(".segment-tab").forEach(link => {
+      link.addEventListener("mouseenter", () => setSegment(link.dataset.segment));
+      link.addEventListener("focus", () => setSegment(link.dataset.segment));
     });
 
     document.querySelectorAll(".form-segment button").forEach(button => {
