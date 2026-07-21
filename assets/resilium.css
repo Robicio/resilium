@@ -1321,6 +1321,260 @@ footer a,
   }
 }
 
+/* Clear, visual explanation of the shared problem */
+.problem-section {
+  background: #fbfbfa;
+}
+
+.problem-section .section-head {
+  max-width: 920px;
+  margin-bottom: 42px;
+}
+
+.problem-section .problem-grid {
+  gap: 16px;
+  counter-reset: problem-card;
+}
+
+.problem-section .problem-card {
+  min-height: 280px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e0e5e8;
+  border-radius: 18px;
+  background: var(--white);
+  box-shadow: 0 12px 34px rgba(35, 45, 53, 0.07);
+}
+
+.problem-section .problem-card::before {
+  counter-increment: problem-card;
+  content: "0" counter(problem-card);
+  width: 38px;
+  height: 38px;
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--cta-ink);
+  background: #fff0e3;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.problem-section .problem-card:hover {
+  transform: translateY(-3px);
+  border-color: #ccd5da;
+  box-shadow: 0 18px 42px rgba(35, 45, 53, 0.1);
+}
+
+.problem-section .problem-card .tag {
+  width: fit-content;
+  margin: 0 50px 24px 0;
+  padding: 7px 10px;
+  display: inline-flex;
+  border-radius: 999px;
+  color: var(--brand-text);
+  background: #fff4ea;
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+.problem-section .problem-card blockquote {
+  margin-bottom: 18px;
+  font-size: clamp(1.12rem, 1.5vw, 1.3rem);
+  line-height: 1.42;
+}
+
+.problem-section .problem-card p {
+  margin-bottom: 0;
+  line-height: 1.65;
+}
+
+.impact-label {
+  margin: 38px 0 14px;
+  color: var(--brand-text);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.problem-section .impact-strip {
+  margin-top: 0;
+  padding: 14px;
+  gap: 12px;
+  border: 0;
+  border-radius: 20px;
+  color: var(--ink);
+  background: #eef1f3;
+}
+
+.problem-section .impact-item,
+.problem-section .impact-item:first-child,
+.problem-section .impact-item:last-child {
+  min-height: 126px;
+  padding: 20px;
+  position: relative;
+  border: 0;
+  border-radius: 14px;
+  background: var(--white);
+  box-shadow: 0 5px 18px rgba(35, 45, 53, 0.05);
+}
+
+.problem-section .impact-item::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  margin-bottom: 16px;
+  display: block;
+  border-radius: 50%;
+  background: var(--cta-bg);
+  box-shadow: 0 0 0 6px #fff0e3;
+}
+
+.problem-section .impact-item strong {
+  margin-bottom: 6px;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.problem-section .impact-item span {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* Human Response Model as a calm visual flow */
+.response-model-section {
+  overflow: hidden;
+  background: #243846;
+}
+
+.response-model-section .model-wrap {
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+  gap: clamp(48px, 7vw, 92px);
+  align-items: center;
+}
+
+.response-model-section .model {
+  padding: 4px 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 11px;
+}
+
+.response-model-section .model::before {
+  content: "";
+  width: 2px;
+  position: absolute;
+  top: 34px;
+  bottom: 34px;
+  left: 36px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.18) 0 46%, var(--cta-bg) 46% 66%, rgba(255, 255, 255, 0.28) 66% 100%);
+}
+
+.response-model-section .model-step,
+.response-model-section .model-step.highlight {
+  min-height: 78px;
+  padding: 14px 18px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 16px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(4px);
+}
+
+.response-model-section .model-step:nth-child(n + 5) {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.response-model-section .model-step small,
+.response-model-section .model-step.highlight small {
+  width: 42px;
+  height: 42px;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  color: var(--dark-readable);
+  background: #243846;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.response-model-section .model-step strong {
+  color: var(--white);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.response-model-section .model-step.highlight {
+  border-color: rgba(244, 133, 44, 0.72);
+  background: rgba(244, 133, 44, 0.16);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.response-model-section .model-step.highlight small {
+  border-color: var(--cta-bg);
+  color: var(--cta-ink);
+  background: var(--cta-bg);
+}
+
+.response-model-section .model-step.highlight strong {
+  color: var(--white);
+}
+
+@media (max-width: 900px) {
+  .problem-section .problem-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-section .problem-card {
+    min-height: 0;
+  }
+
+  .problem-section .impact-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .response-model-section .model-wrap {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+}
+
+@media (max-width: 520px) {
+  .problem-section .impact-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-section .impact-item,
+  .problem-section .impact-item:first-child,
+  .problem-section .impact-item:last-child {
+    min-height: 0;
+  }
+
+  .response-model-section .model-step,
+  .response-model-section .model-step.highlight {
+    padding: 13px 14px;
+    grid-template-columns: 42px 1fr;
+    gap: 13px;
+  }
+
+  .response-model-section .model::before {
+    left: 32px;
+  }
+}
+
 /* First audience choice is a separate navigation band below the hero */
 .audience-navigation {
   padding: clamp(54px, 6vw, 78px) 0;
