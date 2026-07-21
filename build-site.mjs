@@ -78,8 +78,11 @@ export default {
       "x-content-type-options": "nosniff",
       "referrer-policy": "strict-origin-when-cross-origin"
     });
-    if (pathname.startsWith("/assets/")) headers.set("cache-control", "public, max-age=86400");
-    else headers.set("cache-control", "public, max-age=300");
+    if (/\.(?:jpe?g|png|webp|woff2)$/i.test(pathname)) {
+      headers.set("cache-control", "public, max-age=86400");
+    } else {
+      headers.set("cache-control", "public, max-age=300, must-revalidate");
+    }
 
     if (request.method === "HEAD") return new Response(null, { headers });
     if (request.method !== "GET") return new Response("Method Not Allowed", { status: 405 });
