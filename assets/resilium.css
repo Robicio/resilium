@@ -1321,6 +1321,82 @@ footer a,
   }
 }
 
+/* First audience choice is a separate navigation band below the hero */
+.audience-navigation {
+  padding: clamp(54px, 6vw, 78px) 0;
+  border-bottom: 1px solid #e1e5e7;
+  background: #f7f7f5;
+}
+
+.audience-navigation-head {
+  max-width: 720px;
+  margin-bottom: 34px;
+}
+
+.audience-navigation-head h2 {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+.audience-navigation .audience-jump {
+  max-width: none;
+  gap: 16px;
+}
+
+.audience-navigation .audience-chip,
+.audience-navigation .audience-chip.active {
+  min-height: 142px;
+  padding: 24px 52px 24px 24px;
+  border: 1px solid #d5dce0;
+  border-radius: 16px;
+  color: var(--ink);
+  background: var(--white);
+  box-shadow: 0 8px 26px rgba(35, 45, 53, 0.06);
+}
+
+.audience-navigation .audience-chip:hover,
+.audience-navigation .audience-chip.active:hover {
+  transform: translateY(-3px);
+  border-color: #b9c3c9;
+  background: var(--white);
+  box-shadow: 0 16px 38px rgba(35, 45, 53, 0.11);
+}
+
+.audience-navigation .audience-chip small {
+  color: var(--brand-text);
+}
+
+.audience-navigation .audience-chip::after {
+  top: 50%;
+  right: 22px;
+  color: #c65312;
+  transform: translateY(-50%);
+}
+
+.audience-navigation .audience-chip:hover::after {
+  transform: translate(4px, -50%);
+}
+
+@media (max-width: 900px) {
+  .audience-navigation {
+    padding: 50px 0;
+  }
+
+  .audience-navigation-head {
+    margin-bottom: 26px;
+  }
+
+  .audience-navigation .audience-jump {
+    gap: 12px;
+  }
+
+  .audience-navigation .audience-chip,
+  .audience-navigation .audience-chip.active {
+    min-height: 122px;
+    padding: 21px 48px 21px 21px;
+  }
+}
+
 @media (max-width: 720px) {
   body {
     font-size: 15.5px;
