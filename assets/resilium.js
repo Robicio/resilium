@@ -58,12 +58,38 @@
   const hero = document.querySelector(".hero");
 
   if (stickyCta && hero) {
+    const stickyTargetHash = new URL(stickyCta.href, window.location.href).hash;
+    const stickyTarget = stickyTargetHash
+      ? document.querySelector(stickyTargetHash)
+      : null;
+
     const updateStickyCta = () => {
       const heroBottom = hero.getBoundingClientRect().bottom;
-      stickyCta.classList.toggle("visible", heroBottom < 80);
+      const targetRect = stickyTarget?.getBoundingClientRect();
+      const targetIsVisible = Boolean(
+        targetRect &&
+        targetRect.top < window.innerHeight &&
+        targetRect.bottom > 0
+      );
+      const isAtStickyTarget = Boolean(
+        stickyTargetHash && window.location.hash === stickyTargetHash
+      );
+      stickyCta.classList.toggle(
+        "visible",
+        heroBottom < 80 && !targetIsVisible && !isAtStickyTarget
+      );
     };
 
     updateStickyCta();
     window.addEventListener("scroll", updateStickyCta, { passive: true });
+    window.addEventListener("load", updateStickyCta);
+    window.addEventListener("hashchange", updateStickyCta);
+
+    if (stickyTarget && "IntersectionObserver" in window) {
+      const targetObserver = new IntersectionObserver(updateStickyCta, {
+        threshold: 0
+      });
+      targetObserver.observe(stickyTarget);
+    }
   }
 })();
