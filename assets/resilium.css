@@ -1512,9 +1512,23 @@ footer a,
 }
 
 .response-model-section .model-step strong {
+  display: block;
   color: var(--white);
   font-size: 1rem;
   line-height: 1.35;
+}
+
+.response-model-section .model-step-copy {
+  min-width: 0;
+}
+
+.response-model-section .model-step-copy span {
+  display: block;
+  max-width: 44ch;
+  margin-top: 4px;
+  color: #c7d2d8;
+  font-size: 0.82rem;
+  line-height: 1.48;
 }
 
 .response-model-section .model-step.highlight {
@@ -1531,6 +1545,10 @@ footer a,
 
 .response-model-section .model-step.highlight strong {
   color: var(--white);
+}
+
+.response-model-section .model-step.highlight .model-step-copy span {
+  color: #ffe0c4;
 }
 
 @media (max-width: 900px) {
@@ -1568,6 +1586,10 @@ footer a,
     padding: 13px 14px;
     grid-template-columns: 42px 1fr;
     gap: 13px;
+  }
+
+  .response-model-section .model-step-copy span {
+    font-size: 0.8rem;
   }
 
   .response-model-section .model::before {
