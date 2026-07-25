@@ -62,6 +62,9 @@
     const stickyTarget = stickyTargetHash
       ? document.querySelector(stickyTargetHash)
       : null;
+    const stickySuppressionZones = Array.from(
+      document.querySelectorAll("[data-sticky-suppress]")
+    );
 
     const updateStickyCta = () => {
       const heroBottom = hero.getBoundingClientRect().bottom;
@@ -74,9 +77,16 @@
       const isAtStickyTarget = Boolean(
         stickyTargetHash && window.location.hash === stickyTargetHash
       );
+      const suppressionZoneIsVisible = stickySuppressionZones.some((zone) => {
+        const zoneRect = zone.getBoundingClientRect();
+        return zoneRect.top < window.innerHeight && zoneRect.bottom > 0;
+      });
       stickyCta.classList.toggle(
         "visible",
-        heroBottom < 80 && !targetIsVisible && !isAtStickyTarget
+        heroBottom < 80 &&
+          !targetIsVisible &&
+          !isAtStickyTarget &&
+          !suppressionZoneIsVisible
       );
     };
 
@@ -90,6 +100,13 @@
         threshold: 0
       });
       targetObserver.observe(stickyTarget);
+    }
+
+    if (stickySuppressionZones.length && "IntersectionObserver" in window) {
+      const suppressionObserver = new IntersectionObserver(updateStickyCta, {
+        threshold: 0
+      });
+      stickySuppressionZones.forEach((zone) => suppressionObserver.observe(zone));
     }
   }
 })();
