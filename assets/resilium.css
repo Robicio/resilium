@@ -4219,6 +4219,7 @@ footer,
 
 .event-hero-photo img {
   width: 100%;
+  height: auto;
   aspect-ratio: 4 / 5;
   display: block;
   object-fit: cover;
@@ -4574,6 +4575,7 @@ footer,
 
 .event-trust figure img {
   width: 100%;
+  height: auto;
   aspect-ratio: 4 / 4.8;
   display: block;
   object-fit: cover;
