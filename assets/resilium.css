@@ -4124,7 +4124,7 @@ footer,
 .event-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.03fr) minmax(380px, 0.77fr);
-  align-items: center;
+  align-items: start;
   gap: clamp(42px, 7vw, 92px);
 }
 
@@ -4136,8 +4136,8 @@ footer,
   max-width: 760px;
   margin-bottom: 24px;
   color: var(--white);
-  font-size: clamp(3rem, 6vw, 5.8rem);
-  line-height: 0.99;
+  font-size: clamp(3rem, 5.35vw, 5.3rem);
+  line-height: 1.01;
 }
 
 .event-landing .event-hero h1 span {
