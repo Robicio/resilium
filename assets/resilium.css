@@ -3851,3 +3851,197 @@ footer,
     width: 100%;
   }
 }
+
+/* High-visibility public training offer: calm, premium and conversion-led */
+.training-campaign {
+  padding: clamp(34px, 4.5vw, 58px) 0;
+  background:
+    radial-gradient(circle at 86% 12%, rgba(244, 133, 44, 0.12), transparent 31%),
+    #f7f7f5;
+}
+
+.training-campaign .campaign-inner {
+  width: min(var(--max), calc(100% - 48px));
+  margin-inline: auto;
+  padding: clamp(30px, 4vw, 48px);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(28px, 4vw, 54px);
+  border: 0;
+  border-radius: 24px;
+  color: var(--white);
+  background: linear-gradient(125deg, #344956 0%, #2b3d48 100%);
+  box-shadow: 0 24px 58px rgba(35, 45, 53, 0.18);
+}
+
+.training-campaign .campaign-inner::before {
+  content: "";
+  height: 6px;
+  position: absolute;
+  inset: 0 0 auto;
+  background: var(--cta-bg);
+}
+
+.training-campaign .campaign-inner::after {
+  content: "";
+  width: 240px;
+  height: 240px;
+  position: absolute;
+  right: -132px;
+  bottom: -158px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 38px rgba(255, 255, 255, 0.025),
+    0 0 0 76px rgba(255, 255, 255, 0.018);
+  pointer-events: none;
+}
+
+.training-campaign .campaign-copy,
+.training-campaign .btn {
+  position: relative;
+  z-index: 1;
+}
+
+.training-campaign .campaign-copy {
+  display: grid;
+  grid-template-columns: 118px minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(22px, 3vw, 34px);
+}
+
+.training-campaign .campaign-date {
+  min-width: 0;
+  padding: 18px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  color: var(--ink);
+  background: var(--white);
+  box-shadow: 0 12px 30px rgba(19, 28, 34, 0.2);
+}
+
+.training-campaign .campaign-date strong {
+  color: #bd4d0d;
+  font-size: clamp(1.55rem, 2.4vw, 2rem);
+}
+
+.training-campaign .campaign-kicker {
+  width: fit-content;
+  margin: 0 0 12px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  color: var(--cta-ink);
+  background: #ffd8b7;
+  font-size: 0.69rem;
+  line-height: 1;
+}
+
+.training-campaign .campaign-title {
+  max-width: 760px;
+  margin: 0 0 10px;
+  color: var(--white);
+  font-size: clamp(1.45rem, 2.5vw, 2.05rem);
+  line-height: 1.18;
+}
+
+.training-campaign .campaign-meta {
+  color: #d8e1e6;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.training-campaign .btn-primary {
+  min-width: 260px;
+  min-height: 58px;
+  padding-inline: 26px;
+  border-color: transparent;
+  color: var(--cta-ink);
+  background: var(--cta-bg);
+  box-shadow: 0 14px 30px rgba(18, 26, 31, 0.26);
+}
+
+.training-campaign .btn-primary:hover {
+  color: var(--cta-ink);
+  background: var(--cta-bg-hover);
+  box-shadow: 0 18px 36px rgba(18, 26, 31, 0.32);
+}
+
+/* Match audience labels to the proven category treatment in "Společný problém". */
+.audience-navigation .audience-chip small {
+  width: fit-content;
+  margin: 0 0 16px;
+  padding: 7px 10px;
+  display: inline-flex;
+  border-radius: 999px;
+  color: var(--brand-text);
+  background: #fff4ea;
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.audience-navigation .audience-chip strong {
+  line-height: 1.38;
+}
+
+@media (max-width: 900px) {
+  .training-campaign .campaign-inner {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .training-campaign .btn-primary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .training-campaign {
+    padding: 28px 0 36px;
+  }
+
+  .training-campaign .campaign-inner {
+    width: min(100% - 24px, var(--max));
+    padding: 28px 22px 24px;
+    border-radius: 20px;
+  }
+
+  .training-campaign .campaign-copy {
+    grid-template-columns: 88px minmax(0, 1fr);
+    align-items: start;
+    gap: 16px;
+  }
+
+  .training-campaign .campaign-date {
+    padding: 14px 8px;
+    border-radius: 14px;
+  }
+
+  .training-campaign .campaign-date strong {
+    font-size: 1.32rem;
+  }
+
+  .training-campaign .campaign-kicker {
+    margin-bottom: 9px;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+  }
+
+  .training-campaign .campaign-title {
+    font-size: 1.18rem;
+  }
+
+  .training-campaign .campaign-meta {
+    grid-column: 1 / -1;
+    font-size: 0.88rem;
+  }
+
+  .training-campaign .btn-primary {
+    min-width: 0;
+    min-height: 54px;
+    padding-inline: 18px;
+  }
+}
