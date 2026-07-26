@@ -699,7 +699,7 @@
       .programs-grid { grid-template-columns: 1fr; }
     }
 </style>
-<link href="assets/resilium.css?v=30" rel="stylesheet"/>
+<link href="assets/resilium.css?v=31" rel="stylesheet"/>
 </head>
 <body>
 <nav aria-label="Hlavní navigace" class="nav">
@@ -711,6 +711,7 @@
 <a href="lideri-a-manazeri.html">Lídři a manažeři</a>
 <a href="jednotlivci.html">Jednotlivci</a>
 <a href="#metoda">Jak trénink funguje</a>
+<a href="situace.html">Situace</a>
 <a href="clanky.html">Články</a>
 <a aria-label="Veřejný trénink pro jednotlivce – Praha 20. 10. 2026" class="btn btn-primary" href="resilium-trenink-praha-20-10-2026.html">Veřejný trénink 20. 10.</a>
 </div>
@@ -794,7 +795,7 @@
             </p>
 <div class="cta-row">
 <a class="btn btn-light segment-primary" href="firmy-a-organizace.html">Popsat situaci ve firmě</a>
-<a class="btn btn-secondary segment-secondary" href="#situace">Prohlédnout oblasti využití</a>
+<a class="btn btn-secondary segment-secondary" href="situace.html#firmy">Prohlédnout oblasti využití</a>
 </div>
 </div>
 <div class="segment-situations" id="segmentSituations"></div>
@@ -1266,7 +1267,7 @@
 <footer>
 <div class="wrap footer-inner">
 <div class="footer-about"><img alt="Resilium" class="footer-brand" height="56" src="assets/resilium-logo.webp" width="78"/><p>Psychofyzický trénink jednání pod tlakem.</p></div>
-<div><p class="footer-heading">Navigace</p><div class="footer-links"><a href="firmy-a-organizace.html">Firmy a organizace</a><a href="lideri-a-manazeri.html">Lídři a manažeři</a><a href="jednotlivci.html">Jednotlivci</a><a href="clanky.html">Články</a></div></div>
+<div><p class="footer-heading">Navigace</p><div class="footer-links"><a href="firmy-a-organizace.html">Firmy a organizace</a><a href="lideri-a-manazeri.html">Lídři a manažeři</a><a href="jednotlivci.html">Jednotlivci</a><a href="situace.html">Situace</a><a href="clanky.html">Články</a></div></div>
 <div class="footer-company"><p class="footer-heading">Provozovatel</p><address><strong>Allprosys.cz s.r.o.</strong><br/>Zámostní 1155/27<br/>710 00 Ostrava<br/>IČ: 06365329<br/>DIČ: CZ06365329</address><p class="footer-registry">Zapsaná v obchodním rejstříku vedeném Krajským soudem v Ostravě, oddíl C, vložka 71645.</p></div>
 <div class="footer-contact"><p class="footer-heading">Kontakt a právní informace</p><p><a href="mailto:info@allprosys.cz">info@allprosys.cz</a></p><p><a href="https://www.resilium.cz">www.resilium.cz</a></p><p><a href="https://www.resilium.cz/ochrana-osobnich-udaju">Ochrana osobních údajů</a></p></div>
 </div>
@@ -1282,6 +1283,7 @@
         primary: "Dozvědět se více",
         detailHref: "firmy-a-organizace.html",
         secondary: "Prohlédnout oblasti využití",
+        situationsHref: "situace.html#firmy",
         formHeadline: "Jakou situaci potřebujete ve své organizaci zvládat lépe?",
         formIntro: "Napište nám stručně, co se ve firmě nebo týmu opakuje. Doporučíme vhodný formát tréninku a ozveme se s návrhem dalšího kroku.",
         situationLabel: "Jakou situaci potřebujete zvládat lépe? *",
@@ -1302,6 +1304,7 @@
         primary: "Dozvědět se více",
         detailHref: "lideri-a-manazeri.html",
         secondary: "Prohlédnout situace lídrů",
+        situationsHref: "situace.html#lidri",
         formHeadline: "Ve které situaci chcete jako lídr reagovat jinak?",
         formIntro: "Popište krátce situaci, která se ve vaší roli opakuje. Doporučíme individuální nebo firemní formát.",
         situationLabel: "Kterou situaci chcete jako lídr zvládat lépe? *",
@@ -1322,6 +1325,7 @@
         primary: "Dozvědět se více",
         detailHref: "jednotlivci.html",
         secondary: "Prohlédnout typické situace",
+        situationsHref: "situace.html#jednotlivci",
         formHeadline: "V jaké situaci chcete reagovat blíž tomu, jak skutečně chcete?",
         formIntro: "Napište nám stručně, co se vám opakuje. Doporučíme veřejný trénink nebo jinou vhodnou cestu.",
         situationLabel: "Kterou situaci chcete zvládat jinak? *",
@@ -1390,6 +1394,7 @@
       panelPrimary.textContent = data.primary;
       panelPrimary.href = data.detailHref;
       panelSecondary.textContent = data.secondary;
+      panelSecondary.href = data.situationsHref;
       renderSituations(data.situations);
 
       formHeadline.textContent = data.formHeadline;
