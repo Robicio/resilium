@@ -5373,3 +5373,14 @@ footer,
     bottom: -25px;
   }
 }
+
+/* Shared top alignment for two-column editorial sections */
+.model-wrap,
+.event-method-grid,
+.event-trust-grid {
+  align-items: start;
+}
+
+.event-method-grid > div:first-child {
+  padding-top: 0;
+}
