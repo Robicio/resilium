@@ -7,6 +7,64 @@
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
+/* Homepage entry point for the contextual stress-response map */
+.map-launch {
+  color: #fff;
+  background: #27333d;
+}
+
+.map-launch-inner {
+  min-height: 180px;
+  padding-block: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 42px;
+}
+
+.map-launch-copy {
+  max-width: 830px;
+}
+
+.map-launch-kicker {
+  margin: 0 0 7px;
+  color: #f6b77e;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.map-launch h2 {
+  margin: 0 0 9px;
+  color: #fff;
+  font-size: clamp(1.75rem, 3.2vw, 3rem);
+}
+
+.map-launch p:not(.map-launch-kicker) {
+  max-width: 790px;
+  margin: 0;
+  color: #d5dee3;
+  font-size: 0.92rem;
+}
+
+.map-launch .btn {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 760px) {
+  .map-launch-inner {
+    padding-block: 30px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .map-launch .btn {
+    width: 100%;
+  }
+}
+
 @font-face {
   font-family: "Montserrat";
   src: url("montserrat-latin.woff2") format("woff2");

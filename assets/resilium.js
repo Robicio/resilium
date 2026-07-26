@@ -109,4 +109,19 @@
       stickySuppressionZones.forEach((zone) => suppressionObserver.observe(zone));
     }
   }
+
+  const campaignParams = new URLSearchParams(window.location.search);
+  const preservedCampaignParams = new URLSearchParams();
+  ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach((key) => {
+    const value = campaignParams.get(key);
+    if (value) preservedCampaignParams.set(key, value.slice(0, 180));
+  });
+
+  if (preservedCampaignParams.toString()) {
+    document.querySelectorAll("a.preserve-campaign").forEach((link) => {
+      const url = new URL(link.href, window.location.href);
+      preservedCampaignParams.forEach((value, key) => url.searchParams.set(key, value));
+      link.href = url.toString();
+    });
+  }
 })();
