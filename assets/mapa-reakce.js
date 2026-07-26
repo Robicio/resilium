@@ -197,11 +197,16 @@
   });
 
   nextButton.addEventListener("click", () => {
-    if (validateStep()) setStep(activeStep + 1);
+    if (!validateStep()) return;
+    if (activeStep < steps.length - 1) {
+      setStep(activeStep + 1);
+    }
   });
 
   backButton.addEventListener("click", () => {
-    setStep(activeStep - 1);
+    if (activeStep > 0) {
+      setStep(activeStep - 1);
+    }
   });
 
   form.addEventListener("submit", (event) => {

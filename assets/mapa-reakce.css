@@ -8,6 +8,10 @@
   background: #fff;
 }
 
+.map-page [hidden] {
+  display: none !important;
+}
+
 .map-page h1,
 .map-page h2 {
   letter-spacing: -0.048em;
