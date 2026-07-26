@@ -1487,11 +1487,11 @@ footer a,
 .response-model-section .model-wrap {
   grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
   gap: clamp(48px, 7vw, 92px);
-  align-items: center;
+  align-items: start;
 }
 
 .response-model-section .model {
-  padding: 4px 0;
+  padding: 0;
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
