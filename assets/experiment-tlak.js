@@ -52,8 +52,11 @@
     prePressure: 2,
     postPressure: 5,
     symptoms: [],
+    memoryCode: "",
+    memoryCorrect: false,
     locked: false,
     timerFrame: null,
+    pressureCountdownTimer: null,
     taskStartedAt: 0,
     taskDuration: 0,
     pausedAt: 0
@@ -146,14 +149,14 @@
 
   function durationForTask(round, index) {
     if (round === "calm") return 6500;
-    return [4800, 4450, 4100, 3750, 3400, 3050, 2700, 2400][index];
+    return [3600, 3300, 3000, 2700, 2400, 2100, 1800, 1500][index];
   }
 
   function pressureNudge(index) {
     if (state.round !== "pressure") return "";
     if (index === 2) return "Jen si všimněte: dýcháte volně, nebo dech držíte?";
     if (index === 5) return "Co teď dělají čelist a ramena?";
-    if (index === 8) return "Klikáte až po přečtení celého pravidla?";
+    if (index === 7) return "Klikáte až po přečtení celého pravidla?";
     return "";
   }
 
@@ -168,7 +171,7 @@
     elements.taskCount.textContent = `Úloha ${state.taskIndex + 1} z ${tasks.length}`;
     elements.taskPrompt.textContent = ruleCopy[task.rule];
     elements.timeMessage.textContent = isPressure
-      ? "Čas se s každou úlohou zkracuje."
+      ? "Čas se zkracuje · kód držte v paměti."
       : "Máte dost času na přečtení pravidla.";
     elements.bodyNudge.textContent = pressureNudge(state.taskIndex);
     elements.feedback.textContent = "";
@@ -264,7 +267,10 @@
   function finishRound() {
     cancelAnimationFrame(state.timerFrame);
     if (state.round === "calm") {
-      document.getElementById("calmRecorded").textContent = `${state.responses.calm.length} rozhodnutí`;
+      const memoryCodes = ["73", "26", "48", "91", "35", "62", "84", "57"];
+      state.memoryCode = memoryCodes[Math.floor(Math.random() * memoryCodes.length)];
+      document.getElementById("memoryCode").textContent = `${state.memoryCode[0]} — ${state.memoryCode[1]}`;
+      document.getElementById("calmRecorded").textContent = `První kolo: ${state.responses.calm.length} rozhodnutí zaznamenáno`;
       showStage("intermission", "intermissionTitle");
     } else {
       showStage("postcheck", "postcheckTitle");
@@ -306,6 +312,8 @@
       lead = `V tomto krátkém pokusu klesla přesnost z ${calm.accuracy} % na ${pressure.accuracy} %. Pod časovým tlakem jste udělali o ${pressure.errors - calm.errors} ${Math.abs(pressure.errors - calm.errors) === 1 ? "chybu" : "chyb více"}.`;
     } else if (accuracyDelta < 0) {
       lead = `Přesnost se pod tlakem mírně změnila: ${calm.accuracy} % v klidu a ${pressure.accuracy} % ve druhém kole. Důležitější než samotné číslo může být to, čeho jste si všimli během volby.`;
+    } else if (!state.memoryCorrect) {
+      lead = `Přesnost hlavních úloh neklesla (${calm.accuracy} % → ${pressure.accuracy} %), vedlejší paměťový úkol se však nepodařilo vybavit. Zátěž se tak mohla projevit mimo hlavní skóre.`;
     } else if (accuracyDelta === 0) {
       lead = `Přesnost zůstala v obou kolech stejná: ${calm.accuracy} %. Tento pokus tedy pokles přesnosti neukázal — i to je platný výsledek.`;
     } else {
@@ -320,6 +328,7 @@
     document.getElementById("accuracyChange").textContent = signed(accuracyDelta, " b.");
     document.getElementById("speedChange").textContent = signed(Number(speedDeltaSeconds.toFixed(1)), " s");
     document.getElementById("pressureChange").textContent = signed(pressureDelta, " / 10");
+    document.getElementById("memoryResult").textContent = state.memoryCorrect ? "Vybaven" : "Nevybaven";
 
     const observed = state.symptoms.filter((value) => value !== "none");
     if (observed.length) {
@@ -359,11 +368,19 @@
     state.prePressure = 2;
     state.postPressure = 5;
     state.symptoms = [];
+    state.memoryCode = "";
+    state.memoryCorrect = false;
     state.locked = false;
+    clearInterval(state.pressureCountdownTimer);
+    state.pressureCountdownTimer = null;
     elements.prePressure.value = "2";
     elements.prePressureOutput.textContent = "2";
     elements.postPressure.value = "5";
     elements.postPressureOutput.textContent = "5";
+    document.getElementById("memoryRecall").value = "";
+    const pressureButton = document.getElementById("startPressure");
+    pressureButton.disabled = false;
+    pressureButton.textContent = "Kód mám · spustit zátěž";
     document.querySelectorAll(".xp-symptoms input").forEach((input) => {
       input.checked = false;
     });
@@ -390,7 +407,24 @@
   });
 
   document.getElementById("startCalm").addEventListener("click", () => startRound("calm"));
-  document.getElementById("startPressure").addEventListener("click", () => startRound("pressure"));
+  document.getElementById("startPressure").addEventListener("click", () => {
+    const button = document.getElementById("startPressure");
+    button.disabled = true;
+    let countdown = 3;
+    button.textContent = `Začínáme za ${countdown}`;
+    state.pressureCountdownTimer = window.setInterval(() => {
+      countdown -= 1;
+      if (countdown > 0) {
+        button.textContent = `Začínáme za ${countdown}`;
+        return;
+      }
+      clearInterval(state.pressureCountdownTimer);
+      state.pressureCountdownTimer = null;
+      startRound("pressure");
+      button.disabled = false;
+      button.textContent = "Kód mám · spustit zátěž";
+    }, 700);
+  });
   document.getElementById("leaveBeforePressure").addEventListener("click", resetExperiment);
   document.getElementById("stopExperiment").addEventListener("click", resetExperiment);
   document.getElementById("restartExperiment").addEventListener("click", resetExperiment);
@@ -399,6 +433,8 @@
     state.postPressure = Number(elements.postPressure.value);
     state.symptoms = Array.from(document.querySelectorAll(".xp-symptoms input:checked"))
       .map((input) => input.value);
+    const recalledCode = document.getElementById("memoryRecall").value.replace(/\D/g, "");
+    state.memoryCorrect = recalledCode === state.memoryCode;
     buildResult();
   });
 
