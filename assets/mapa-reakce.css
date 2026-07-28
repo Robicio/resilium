@@ -90,13 +90,13 @@
   border-radius: 12px;
   color: #dbe2e6;
   background: rgba(255, 255, 255, 0.05);
-  font-size: 0.86rem;
+  font-size: 1.05rem;
 }
 
 .map-facts strong {
   margin-right: 5px;
   color: #fff;
-  font-size: 1rem;
+  font-size: 1.15rem;
 }
 
 .map-principle {
@@ -132,7 +132,7 @@
 .map-principle-kicker {
   margin-bottom: 7px;
   color: #f7b97f;
-  font-size: 0.75rem;
+  font-size: 1.05rem;
   font-weight: 780;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -152,7 +152,7 @@
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.16);
   color: #f0f3f5;
-  font-size: 0.78rem;
+  font-size: 1.05rem;
   font-weight: 680;
 }
 
@@ -197,7 +197,7 @@
   border-radius: 999px;
   color: #315f58;
   background: #e5f2ef;
-  font-size: 0.74rem;
+  font-size: 1.05rem;
   font-weight: 720;
   white-space: nowrap;
 }
@@ -211,7 +211,7 @@
   max-width: 780px;
   margin-bottom: 30px;
   color: #53636f;
-  font-size: 1.06rem;
+  font-size: 1.22rem;
 }
 
 .context-options {
@@ -227,7 +227,7 @@
   width: 100%;
   margin-bottom: 13px;
   color: var(--map-ink);
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 760;
 }
 
@@ -294,12 +294,12 @@
 .context-options strong {
   margin-bottom: 3px;
   color: var(--map-ink);
-  font-size: 0.96rem;
+  font-size: 1.05rem;
 }
 
 .context-options small {
   color: #71808b;
-  font-size: 0.79rem;
+  font-size: 1.05rem;
 }
 
 .map-start {
@@ -310,14 +310,14 @@
   max-width: 730px;
   margin: 18px 0 0;
   color: #75838d;
-  font-size: 0.78rem;
+  font-size: 1.05rem;
 }
 
 .map-error {
   min-height: 1.4em;
   margin: 13px 0 0;
   color: #a63f38;
-  font-size: 0.86rem;
+  font-size: 1.05rem;
   font-weight: 680;
 }
 
@@ -331,7 +331,7 @@
   justify-content: space-between;
   gap: 16px;
   color: #657580;
-  font-size: 0.78rem;
+  font-size: 1.05rem;
   font-weight: 720;
 }
 
@@ -360,7 +360,7 @@
 .question-domain {
   margin-bottom: 9px;
   color: var(--map-orange);
-  font-size: 0.74rem;
+  font-size: 1.05rem;
   font-weight: 800;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -369,7 +369,7 @@
 .question-instruction {
   margin-bottom: 26px;
   color: #697985;
-  font-size: 0.92rem;
+  font-size: 1.05rem;
 }
 
 .question-card {
@@ -390,7 +390,7 @@
   margin-bottom: 18px;
   padding: 0;
   color: var(--map-ink);
-  font-size: 0.98rem;
+  font-size: 1.05rem;
   font-weight: 680;
 }
 
@@ -429,13 +429,13 @@
 
 .scale-options b {
   color: #52636f;
-  font-size: 1rem;
+  font-size: 1.15rem;
 }
 
 .scale-options small {
   margin-top: 2px;
   color: #73828d;
-  font-size: 0.68rem;
+  font-size: 1.05rem;
   line-height: 1.2;
 }
 
@@ -484,7 +484,7 @@
   align-items: center;
   gap: 8px;
   color: #6d7c86;
-  font-size: 0.78rem;
+  font-size: 1.05rem;
   font-weight: 700;
 }
 
@@ -506,7 +506,7 @@
   max-width: 790px;
   margin-bottom: 42px;
   color: #596a76;
-  font-size: 1.06rem;
+  font-size: 1.22rem;
 }
 
 .result-layout {
@@ -537,12 +537,12 @@
 
 .result-row-head strong {
   color: var(--map-ink);
-  font-size: 0.9rem;
+  font-size: 1.05rem;
 }
 
 .result-row-head span {
   color: #566a76;
-  font-size: 0.85rem;
+  font-size: 1.05rem;
   font-weight: 760;
 }
 
@@ -599,7 +599,7 @@
   display: block;
   margin-bottom: 5px;
   color: #f7b97f;
-  font-size: 0.7rem;
+  font-size: 1.05rem;
   font-weight: 780;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -608,7 +608,7 @@
 .focus-action p {
   margin: 0;
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   font-weight: 620;
 }
 
@@ -622,13 +622,13 @@
 
 .result-reading h3 {
   margin-bottom: 5px;
-  font-size: 1rem;
+  font-size: 1.15rem;
 }
 
 .result-reading p {
   margin: 0;
   color: #536c68;
-  font-size: 0.84rem;
+  font-size: 1.05rem;
 }
 
 .result-actions {
@@ -647,14 +647,14 @@
 .map-mail-link {
   margin-left: 5px;
   color: var(--map-panel);
-  font-size: 0.88rem;
+  font-size: 1.05rem;
 }
 
 .result-consent-note {
   max-width: 760px;
   margin: 13px 0 0;
   color: #74828b;
-  font-size: 0.72rem;
+  font-size: 1.05rem;
 }
 
 .result-detail {
@@ -666,7 +666,7 @@
 .result-detail summary {
   padding: 20px 0;
   color: var(--map-ink);
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   font-weight: 760;
   cursor: pointer;
 }
@@ -686,13 +686,13 @@
 
 .domain-explanations h3 {
   margin-bottom: 5px;
-  font-size: 0.9rem;
+  font-size: 1.05rem;
 }
 
 .domain-explanations p {
   margin: 0;
   color: #657681;
-  font-size: 0.78rem;
+  font-size: 1.05rem;
 }
 
 .map-restart {
@@ -701,7 +701,7 @@
   border: 0;
   color: #657681;
   background: transparent;
-  font-size: 0.78rem;
+  font-size: 1.05rem;
   text-decoration: underline;
   text-underline-offset: 4px;
   cursor: pointer;
@@ -732,7 +732,7 @@
 
 .method-list article > span {
   color: var(--map-orange);
-  font-size: 0.78rem;
+  font-size: 1.05rem;
   font-weight: 800;
 }
 
@@ -743,7 +743,7 @@
 .method-list p {
   margin: 0;
   color: #657681;
-  font-size: 0.9rem;
+  font-size: 1.05rem;
 }
 
 .evidence-note {
@@ -765,7 +765,7 @@
 .evidence-note p {
   margin: 0;
   color: #d5dee3;
-  font-size: 0.88rem;
+  font-size: 1.05rem;
 }
 
 .evidence-note ul {
@@ -779,7 +779,7 @@
 
 .evidence-note a {
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 1.05rem;
   text-underline-offset: 4px;
 }
 
@@ -912,7 +912,7 @@
   .scale-options label:nth-child(5) small::after { content: "Skoro vždy"; }
 
   .scale-options small::after {
-    font-size: 0.55rem;
+    font-size: 1.05rem;
   }
 
   .map-form-actions .btn {
