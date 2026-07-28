@@ -29,8 +29,9 @@
   overflow: hidden;
   color: #fff;
   background:
-    radial-gradient(circle at 73% 46%, rgba(244, 133, 44, 0.14), transparent 26%),
-    linear-gradient(135deg, #536a7d 0%, #485f71 55%, #405665 100%);
+    radial-gradient(circle at 73% 46%, rgba(245, 130, 40, 0.22), transparent 26%),
+    radial-gradient(circle at 78% 35%, rgba(255, 255, 255, 0.09), transparent 34%),
+    linear-gradient(135deg, #5c6266 0%, #4a5155 55%, #373f44 100%);
 }
 
 .xp-hero::before {

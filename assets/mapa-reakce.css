@@ -1,11 +1,11 @@
 .map-page {
   --map-ink: #27333d;
-  --map-panel: #3a4855;
-  --map-blue: #4d6479;
-  --map-orange: #f4852c;
-  --map-cream: #f7f3eb;
-  --map-mint: #dce9e7;
-  background: #fff;
+  --map-panel: #3d464b;
+  --map-blue: #555b5f;
+  --map-orange: #f58228;
+  --map-cream: #f4f4f1;
+  --map-mint: #eceeec;
+  background: #f4f4f1;
 }
 
 .map-page [hidden] {
@@ -28,8 +28,9 @@
   align-items: center;
   color: #fff;
   background:
-    radial-gradient(circle at 84% 18%, rgba(244, 133, 44, 0.18), transparent 23rem),
-    linear-gradient(132deg, #27333d 0%, #3a4855 54%, #4d6479 100%);
+    radial-gradient(circle at 84% 18%, rgba(245, 130, 40, 0.22), transparent 23rem),
+    radial-gradient(circle at 78% 34%, rgba(255, 255, 255, 0.08), transparent 29rem),
+    linear-gradient(132deg, #303a40 0%, #424b50 54%, #555b5f 100%);
   overflow: hidden;
 }
 

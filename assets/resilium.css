@@ -6438,3 +6438,582 @@ footer,
     text-align: center;
   }
 }
+
+/* 2026 visual unification
+   One neutral-grey system, Resilium-orange conversion actions, circular motif
+   and a clearly connected response sequence. Content remains unchanged. */
+:root {
+  --resilium-grey-050: #f4f4f1;
+  --resilium-grey-100: #eceeec;
+  --resilium-grey-200: #d9dddc;
+  --resilium-grey-500: #69747a;
+  --resilium-grey-700: #485158;
+  --resilium-grey-800: #39444b;
+  --resilium-grey-900: #29343b;
+  --resilium-orange: #f58228;
+  --resilium-orange-hover: #df701b;
+  --resilium-orange-soft: #ffd9b9;
+  --ink: var(--resilium-grey-900);
+  --ink-2: var(--resilium-grey-700);
+  --ink2: var(--resilium-grey-700);
+  --muted: #647178;
+  --bg: #555b5f;
+  --panel: var(--resilium-grey-800);
+  --paper: var(--resilium-grey-050);
+  --soft: var(--resilium-grey-100);
+  --pale: var(--resilium-grey-100);
+  --brand-pale: var(--resilium-grey-100);
+  --line: var(--resilium-grey-200);
+  --brand: var(--resilium-orange);
+  --brand-dark: var(--resilium-orange-hover);
+  --branddark: var(--resilium-orange-hover);
+  --brand-soft: var(--resilium-orange-soft);
+  --brand-text: #a94c12;
+  --cta-bg: var(--resilium-orange);
+  --cta-bg-hover: var(--resilium-orange-hover);
+  --cta-ink: #253139;
+}
+
+body {
+  background: var(--resilium-grey-050);
+}
+
+.section,
+.audience-navigation,
+.training-campaign,
+.stress-tool-entry {
+  background-color: var(--resilium-grey-050);
+}
+
+.section-soft,
+.soft,
+.section-pale {
+  background-color: var(--resilium-grey-100);
+}
+
+/* Shared headline rhythm: wider measure, centred hierarchy and about 15% more presence. */
+h2 {
+  max-width: 1120px;
+  font-size: clamp(2.4rem, 4.65vw, 4rem);
+}
+
+.section-head,
+.audience-navigation-head {
+  width: min(100%, 1080px);
+  max-width: 1080px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.section-head .lead,
+.section-head > p:not(.eyebrow),
+.audience-navigation-head p {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.section > .wrap:not(.grid2) > .eyebrow:first-child,
+.section > .wrap:not(.grid2) > .eyebrow:first-child + h2,
+.section > .wrap:not(.grid2) > .eyebrow:first-child + h2 + .lead {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+/* The main hero adopts the experiment's glow while staying calmer and greyer. */
+.hero {
+  background:
+    radial-gradient(circle at 78% 34%, rgba(245, 130, 40, 0.23), transparent 18rem),
+    radial-gradient(circle at 82% 28%, rgba(255, 255, 255, 0.1), transparent 28rem),
+    linear-gradient(135deg, #5c6266 0%, #4a5155 52%, #373f44 100%);
+}
+
+.hero::before {
+  right: -170px;
+  bottom: -260px;
+  width: 640px;
+  height: 640px;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 50%;
+  background: transparent;
+  box-shadow:
+    0 0 0 78px rgba(255, 255, 255, 0.034),
+    0 0 0 156px rgba(255, 255, 255, 0.022);
+}
+
+.hero::after {
+  top: 30%;
+  right: 12%;
+  bottom: auto;
+  width: 300px;
+  height: 300px;
+  display: block;
+  background: rgba(245, 130, 40, 0.2);
+  filter: blur(105px);
+}
+
+.hero h1 {
+  max-width: 1120px;
+}
+
+.nav-inner,
+.navin {
+  background: rgba(57, 68, 75, 0.96);
+}
+
+.btn-primary,
+.primary,
+.segment-tab .segment-tab-action,
+.training-campaign .btn-primary {
+  color: var(--cta-ink);
+  background: var(--resilium-orange);
+}
+
+.btn-primary:hover,
+.primary:hover,
+.segment-tab:hover .segment-tab-action,
+.training-campaign .btn-primary:hover {
+  color: var(--cta-ink);
+  background: var(--resilium-orange-hover);
+}
+
+/* Audience labels read as categories, not as pale decorative pills. */
+.audience-navigation .audience-chip,
+.audience-navigation .audience-chip.active {
+  padding: 31px 34px 32px;
+  border-color: #d3d8d7;
+  background: #f8f8f6;
+}
+
+.audience-navigation .audience-chip small {
+  width: auto;
+  margin: 0 0 16px;
+  padding: 0;
+  display: block;
+  border-radius: 0;
+  color: #a94c12;
+  background: transparent;
+  font-size: clamp(0.78rem, 1vw, 0.88rem);
+  font-weight: 850;
+  letter-spacing: 0.13em;
+  line-height: 1.35;
+}
+
+.audience-navigation .audience-chip strong {
+  max-width: 92%;
+  font-size: clamp(1.18rem, 1.55vw, 1.38rem);
+  line-height: 1.34;
+}
+
+/* In situation cards the intended audience now precedes the situation title. */
+.use-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.use-card .audiences {
+  order: -1;
+  margin: 0 0 16px;
+  color: #a94c12;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.use-card h3 {
+  font-size: clamp(1.28rem, 1.7vw, 1.52rem);
+}
+
+/* Dark content becomes a rounded premium panel, matching the public-training block. */
+.section-dark,
+.section.dark {
+  padding: clamp(42px, 5.5vw, 74px) 0;
+  color: var(--white);
+  background: var(--resilium-grey-050);
+}
+
+.section-dark > .wrap,
+.section.dark > .wrap {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(46px, 6vw, 82px);
+  color: var(--white);
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 86% 16%, rgba(245, 130, 40, 0.12), transparent 25rem),
+    linear-gradient(132deg, #465159 0%, #37434a 56%, #2c373e 100%);
+  box-shadow:
+    inset 0 6px 0 var(--resilium-orange),
+    0 26px 64px rgba(34, 43, 48, 0.17);
+}
+
+.section-dark > .wrap::after,
+.section.dark > .wrap::after,
+.stress-tool-card::after {
+  position: absolute;
+  right: -150px;
+  bottom: -210px;
+  width: 390px;
+  height: 390px;
+  pointer-events: none;
+  content: "";
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 56px rgba(255, 255, 255, 0.027),
+    0 0 0 112px rgba(255, 255, 255, 0.018);
+}
+
+.section-dark > .wrap > *,
+.section.dark > .wrap > *,
+.stress-tool-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.section-dark .eyebrow,
+.section.dark .eyebrow,
+.dark .eyebrow {
+  color: var(--resilium-orange-soft);
+}
+
+.section-dark .model-wrap,
+.section.dark .model-wrap {
+  grid-template-columns: 1fr;
+  gap: clamp(38px, 5vw, 64px);
+}
+
+.section-dark .model-wrap > :first-child,
+.section.dark .model-wrap > :first-child {
+  width: min(100%, 1030px);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-dark .model-wrap > :first-child h2,
+.section.dark .model-wrap > :first-child h2,
+.section-dark .model-wrap > :first-child .lead,
+.section.dark .model-wrap > :first-child .lead,
+.section-dark .model-wrap > :first-child .small,
+.section.dark .model-wrap > :first-child .small {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* A visible snake connects the six events as one cause-and-effect sequence. */
+.response-model-section .model,
+.section.dark .model,
+.section-dark .model {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px 42px;
+}
+
+.response-model-section .model-step,
+.section.dark .model-step,
+.section-dark .model-step,
+.response-model-section .model-step.highlight,
+.section.dark .model-step.highlight,
+.section-dark .model-step.highlight {
+  min-height: 148px;
+  padding: 25px 26px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 16px;
+  align-content: center;
+  align-items: start;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.response-model-section .model-step.highlight,
+.section.dark .model-step.highlight,
+.section-dark .model-step.highlight {
+  border-color: rgba(245, 130, 40, 0.82);
+  background: rgba(245, 130, 40, 0.13);
+  box-shadow: 0 18px 38px rgba(20, 27, 31, 0.16);
+}
+
+.response-model-section .model-step small,
+.section.dark .model-step small,
+.section-dark .model-step small {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  background: #32434d;
+  font-size: 0.72rem;
+}
+
+.response-model-section .model-step.highlight small,
+.section.dark .model-step.highlight small,
+.section-dark .model-step.highlight small {
+  color: var(--cta-ink);
+  border-color: var(--resilium-orange);
+  background: var(--resilium-orange);
+  box-shadow: 0 0 0 8px rgba(245, 130, 40, 0.11);
+}
+
+.response-model-section .model-step-copy,
+.section.dark .model-step > div,
+.section-dark .model-step > div {
+  min-width: 0;
+}
+
+.response-model-section .model-step strong,
+.section.dark .model-step strong,
+.section-dark .model-step strong {
+  display: block;
+  color: var(--white);
+  font-size: clamp(1.02rem, 1.35vw, 1.18rem);
+}
+
+.response-model-section .model-step p,
+.section.dark .model-step p,
+.section-dark .model-step p {
+  margin: 7px 0 0;
+  color: #ccd5da;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.response-model-section .model-step:nth-child(1),
+.section.dark .model-step:nth-child(1),
+.section-dark .model-step:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.response-model-section .model-step:nth-child(2),
+.section.dark .model-step:nth-child(2),
+.section-dark .model-step:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.response-model-section .model-step:nth-child(3),
+.section.dark .model-step:nth-child(3),
+.section-dark .model-step:nth-child(3) {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.response-model-section .model-step:nth-child(4),
+.section.dark .model-step:nth-child(4),
+.section-dark .model-step:nth-child(4) {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.response-model-section .model-step:nth-child(5),
+.section.dark .model-step:nth-child(5),
+.section-dark .model-step:nth-child(5) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.response-model-section .model-step:nth-child(6),
+.section.dark .model-step:nth-child(6),
+.section-dark .model-step:nth-child(6) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.response-model-section .model-step:nth-child(1)::after,
+.response-model-section .model-step:nth-child(2)::after,
+.section.dark .model-step:nth-child(1)::after,
+.section.dark .model-step:nth-child(2)::after,
+.section-dark .model-step:nth-child(1)::after,
+.section-dark .model-step:nth-child(2)::after {
+  position: absolute;
+  top: 50%;
+  right: -31px;
+  width: 20px;
+  content: "→";
+  color: var(--resilium-orange);
+  font-size: 1.45rem;
+  font-weight: 900;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.response-model-section .model-step:nth-child(3)::after,
+.section.dark .model-step:nth-child(3)::after,
+.section-dark .model-step:nth-child(3)::after {
+  position: absolute;
+  right: 50%;
+  bottom: -30px;
+  content: "↓";
+  color: var(--resilium-orange);
+  font-size: 1.45rem;
+  font-weight: 900;
+  line-height: 1;
+  transform: translateX(50%);
+}
+
+.response-model-section .model-step:nth-child(4)::after,
+.response-model-section .model-step:nth-child(5)::after,
+.section.dark .model-step:nth-child(4)::after,
+.section.dark .model-step:nth-child(5)::after,
+.section-dark .model-step:nth-child(4)::after,
+.section-dark .model-step:nth-child(5)::after {
+  position: absolute;
+  top: 50%;
+  left: -31px;
+  width: 20px;
+  content: "←";
+  color: var(--resilium-orange);
+  font-size: 1.45rem;
+  font-weight: 900;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+/* The experiment entry carries the same glow and circle language. */
+.stress-tool-card {
+  background:
+    radial-gradient(circle at 78% 38%, rgba(245, 130, 40, 0.2), transparent 15rem),
+    linear-gradient(132deg, #465159 0%, #37434a 58%, #2c373e 100%);
+  box-shadow:
+    inset 0 6px 0 var(--resilium-orange),
+    0 26px 64px rgba(34, 43, 48, 0.17);
+}
+
+@media (max-width: 960px) {
+  h2 {
+    font-size: clamp(2.25rem, 6vw, 3.45rem);
+  }
+
+  .audience-navigation .audience-chip,
+  .audience-navigation .audience-chip.active {
+    padding: 27px 26px 29px;
+  }
+
+  .response-model-section .model,
+  .section.dark .model,
+  .section-dark .model {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .response-model-section .model-step:nth-child(n),
+  .section.dark .model-step:nth-child(n),
+  .section-dark .model-step:nth-child(n) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .response-model-section .model-step:nth-child(n)::after,
+  .section.dark .model-step:nth-child(n)::after,
+  .section-dark .model-step:nth-child(n)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    width: min(var(--max), calc(100% - 28px));
+  }
+
+  h2 {
+    font-size: clamp(2.08rem, 10vw, 2.8rem);
+  }
+
+  .section-head,
+  .audience-navigation-head,
+  .section > .wrap:not(.grid2) > .eyebrow:first-child,
+  .section > .wrap:not(.grid2) > .eyebrow:first-child + h2,
+  .section > .wrap:not(.grid2) > .eyebrow:first-child + h2 + .lead {
+    text-align: left;
+  }
+
+  .section-head .lead,
+  .section-head > p:not(.eyebrow),
+  .audience-navigation-head p {
+    margin-left: 0;
+  }
+
+  .hero {
+    background:
+      radial-gradient(circle at 82% 28%, rgba(245, 130, 40, 0.2), transparent 12rem),
+      linear-gradient(145deg, #565d61 0%, #40484d 58%, #313a3f 100%);
+  }
+
+  .hero::before {
+    right: -250px;
+    bottom: -280px;
+    width: 520px;
+    height: 520px;
+  }
+
+  .section-dark,
+  .section.dark {
+    padding: 24px 0;
+  }
+
+  .section-dark > .wrap,
+  .section.dark > .wrap {
+    width: min(100% - 20px, var(--max));
+    padding: 39px 22px;
+    border-radius: 25px;
+  }
+
+  .section-dark .model-wrap > :first-child,
+  .section.dark .model-wrap > :first-child {
+    text-align: left;
+  }
+
+  .response-model-section .model,
+  .section.dark .model,
+  .section-dark .model {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .response-model-section .model-step,
+  .section.dark .model-step,
+  .section-dark .model-step,
+  .response-model-section .model-step.highlight,
+  .section.dark .model-step.highlight,
+  .section-dark .model-step.highlight {
+    min-height: 0;
+    padding: 22px 20px;
+    grid-template-columns: 44px minmax(0, 1fr);
+  }
+
+  .response-model-section .model-step:nth-child(n)::after,
+  .section.dark .model-step:nth-child(n)::after,
+  .section-dark .model-step:nth-child(n)::after {
+    right: 50%;
+    bottom: -25px;
+    left: auto;
+    top: auto;
+    width: auto;
+    display: block;
+    content: "↓";
+    transform: translateX(50%);
+  }
+
+  .response-model-section .model-step:last-child::after,
+  .section.dark .model-step:last-child::after,
+  .section-dark .model-step:last-child::after {
+    display: none;
+  }
+
+  .audience-navigation .audience-chip small {
+    font-size: 0.76rem;
+  }
+
+  .audience-navigation .audience-chip strong {
+    font-size: 1.16rem;
+  }
+}
