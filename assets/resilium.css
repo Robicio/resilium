@@ -7190,3 +7190,119 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Unified numbering system
+   A stable graphite marker creates one scan pattern across light and dark
+   sections. The orange rail keeps the sequence connected to the Resilium
+   brand without competing with primary calls to action. */
+:root {
+  --sequence-size: 52px;
+  --sequence-radius: 14px;
+  --sequence-bg: #354750;
+  --sequence-bg-deep: #2b3b44;
+  --sequence-ink: #ffffff;
+  --sequence-accent: #f58228;
+}
+
+.num,
+.method-step .num,
+.benefit-card .num,
+#evidence .evidence-number,
+.evidence-number,
+.situation-no,
+.situation-card .situation-no,
+.situations-section-dark .situation-card .situation-no,
+.situations-segment-nav a > span,
+.article-signal-number,
+.event-recognition-card > span,
+.stress-tool-steps li > span,
+.event-method-steps li > span,
+.model-step > small,
+.response-model-section .model-step > small,
+.section.dark .model-step > small,
+.section-dark .model-step > small {
+  width: var(--sequence-size);
+  min-width: var(--sequence-size);
+  height: var(--sequence-size);
+  min-height: var(--sequence-size);
+  margin: 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  color: var(--sequence-ink);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--sequence-radius);
+  background: linear-gradient(145deg, var(--sequence-bg), var(--sequence-bg-deep));
+  box-shadow:
+    inset 0 -4px 0 var(--sequence-accent),
+    0 9px 22px rgba(31, 43, 50, 0.15);
+  font-size: 1.05rem;
+  font-weight: 850;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  letter-spacing: 0.025em;
+}
+
+.benefit-card .num,
+#evidence .evidence-number,
+.article-signal-number {
+  margin-bottom: 24px;
+}
+
+.method-step {
+  grid-template-columns: 58px minmax(0, 1fr);
+}
+
+.response-model-section .model-step,
+.section.dark .model-step,
+.section-dark .model-step,
+.response-model-section .model-step.highlight,
+.section.dark .model-step.highlight,
+.section-dark .model-step.highlight {
+  grid-template-columns: 58px minmax(0, 1fr);
+}
+
+.model-step.highlight > small,
+.response-model-section .model-step.highlight > small,
+.section.dark .model-step.highlight > small,
+.section-dark .model-step.highlight > small,
+.event-method-steps li.is-pivot > span {
+  color: #25343d;
+  border-color: var(--sequence-accent);
+  border-radius: var(--sequence-radius);
+  background: var(--sequence-accent);
+  background-image: none;
+  box-shadow:
+    inset 0 -4px 0 rgba(37, 52, 61, 0.22),
+    0 0 0 7px rgba(245, 130, 40, 0.13),
+    0 10px 24px rgba(17, 25, 30, 0.18);
+}
+
+.event-method-steps li,
+.event-method-steps li.is-pivot {
+  grid-template-columns: 58px minmax(0, 1fr);
+}
+
+.event-method-steps::before {
+  left: 50px;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --sequence-size: 48px;
+    --sequence-radius: 13px;
+  }
+
+  .method-step,
+  .response-model-section .model-step,
+  .section.dark .model-step,
+  .section-dark .model-step,
+  .event-method-steps li,
+  .event-method-steps li.is-pivot {
+    grid-template-columns: 54px minmax(0, 1fr);
+  }
+
+  .event-method-steps::before {
+    left: 47px;
+  }
+}
