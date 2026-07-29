@@ -7306,3 +7306,82 @@ body {
     left: 47px;
   }
 }
+
+/* Centred section-head wrapping
+   Section headlines share one reading axis on desktop and mobile. Balanced
+   wrapping prevents a long headline from collapsing into an uneven left
+   column while supporting copy keeps its established reading alignment. */
+.section-head > .eyebrow,
+.section-head > h2,
+.audience-navigation-head > .eyebrow,
+.audience-navigation-head > h2,
+.model-wrap > div:first-child > .eyebrow,
+.model-wrap > div:first-child > h2,
+.method-layout > div:first-child > .eyebrow,
+.method-layout > div:first-child > h2,
+.response-contrast-copy > .eyebrow,
+.response-contrast-copy > h2,
+.mentor-copy > .eyebrow,
+.mentor-copy > h2,
+.lead-layout > div:first-child > .eyebrow,
+.lead-layout > div:first-child > h2,
+.stress-tool-copy > .eyebrow,
+.stress-tool-copy > h2,
+.grid2 > div:first-child > .eyebrow,
+.grid2 > div:first-child > h2,
+.event-section-head > .eyebrow,
+.event-section-head > h2,
+.situations-section-head > .eyebrow,
+.situations-section-head > h2,
+.section > .wrap:not(.grid2) > .eyebrow:first-child,
+.section > .wrap:not(.grid2) > .eyebrow:first-child + h2 {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.section-head > h2,
+.audience-navigation-head > h2,
+.model-wrap > div:first-child > h2,
+.method-layout > div:first-child > h2,
+.response-contrast-copy > h2,
+.mentor-copy > h2,
+.lead-layout > div:first-child > h2,
+.stress-tool-copy > h2,
+.grid2 > div:first-child > h2,
+.event-section-head > h2,
+.situations-section-head > h2 {
+  max-width: 1120px;
+}
+
+@media (max-width: 640px) {
+  .section-head,
+  .audience-navigation-head,
+  .section-head > .eyebrow,
+  .section-head > h2,
+  .audience-navigation-head > .eyebrow,
+  .audience-navigation-head > h2,
+  .model-wrap > div:first-child > .eyebrow,
+  .model-wrap > div:first-child > h2,
+  .method-layout > div:first-child > .eyebrow,
+  .method-layout > div:first-child > h2,
+  .response-contrast-copy > .eyebrow,
+  .response-contrast-copy > h2,
+  .mentor-copy > .eyebrow,
+  .mentor-copy > h2,
+  .lead-layout > div:first-child > .eyebrow,
+  .lead-layout > div:first-child > h2,
+  .stress-tool-copy > .eyebrow,
+  .stress-tool-copy > h2,
+  .grid2 > div:first-child > .eyebrow,
+  .grid2 > div:first-child > h2,
+  .event-section-head > .eyebrow,
+  .event-section-head > h2,
+  .situations-section-head > .eyebrow,
+  .situations-section-head > h2,
+  .section > .wrap:not(.grid2) > .eyebrow:first-child,
+  .section > .wrap:not(.grid2) > .eyebrow:first-child + h2 {
+    text-align: center;
+  }
+}
