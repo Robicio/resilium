@@ -654,3 +654,54 @@
     margin-bottom: 30px;
   }
 }
+
+/* Final homepage reading axis.
+   All introductions begin on the same left edge and use the available measure
+   instead of creating isolated centred text islands. */
+.home-page .section-head,
+.home-page .audience-navigation-head,
+.home-page .response-model-section .model-wrap > :first-child,
+.home-page .response-contrast-copy,
+.home-page .method-section-head,
+.home-page .mentor-section-head {
+  width: 100%;
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+  text-align: left;
+}
+
+.home-page .section-head > .eyebrow,
+.home-page .section-head > h2,
+.home-page .section-head > .lead,
+.home-page .section-head > p:not(.eyebrow),
+.home-page .audience-navigation-head > .eyebrow,
+.home-page .audience-navigation-head > h2,
+.home-page .audience-navigation-head > p,
+.home-page .response-model-section .model-wrap > :first-child > .eyebrow,
+.home-page .response-model-section .model-wrap > :first-child > h2,
+.home-page .response-model-section .model-wrap > :first-child > .lead,
+.home-page .response-contrast-copy > .eyebrow,
+.home-page .response-contrast-copy > h2,
+.home-page .response-contrast-copy > .lead,
+.home-page .method-section-head > .eyebrow,
+.home-page .method-section-head > h2,
+.home-page .method-section-head > .lead,
+.home-page .mentor-section-head > .eyebrow,
+.home-page .mentor-section-head > h2,
+.home-page .mentor-section-head > .lead {
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+  text-align: left;
+  text-wrap: pretty;
+}
+
+.home-page .section-head > .lead,
+.home-page .section-head > p:not(.eyebrow),
+.home-page .response-model-section .model-wrap > :first-child > .lead,
+.home-page .response-contrast-copy > .lead,
+.home-page .method-section-head > .lead,
+.home-page .mentor-section-head > .lead {
+  width: min(100%, 1280px);
+}

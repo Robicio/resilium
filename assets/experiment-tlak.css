@@ -1281,6 +1281,34 @@
   }
 }
 
+/* Match the site's single left-hand reading axis. */
+.experiment-page .xp-method-head,
+.experiment-page .xp-closing-inner > div:first-child {
+  width: 100%;
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+  text-align: left;
+}
+
+.experiment-page .xp-method-head > .eyebrow,
+.experiment-page .xp-method-head > h2,
+.experiment-page .xp-method-head > .lead,
+.experiment-page .xp-closing-inner > div:first-child > .eyebrow,
+.experiment-page .xp-closing-inner > div:first-child > h2,
+.experiment-page .xp-closing-inner > div:first-child > p:not(.eyebrow) {
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+  text-align: left;
+  text-wrap: pretty;
+}
+
+.experiment-page .xp-method-head > .lead,
+.experiment-page .xp-closing-inner > div:first-child > p:not(.eyebrow) {
+  width: min(100%, 1280px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .xp-orbit,
   .xp-chart-track span {
