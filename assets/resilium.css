@@ -7524,3 +7524,93 @@ body:not(.event-landing) h2 {
     font-size: clamp(1.98rem, 9.5vw, 2.66rem);
   }
 }
+
+/* Transparent early-registration pricing.
+   The deadline and future standard price stay visible together; urgency is
+   created by a real condition rather than a countdown or unverifiable claim. */
+.campaign-meta strong {
+  color: #ffd0a8;
+  font-weight: 800;
+}
+
+.event-early-bird {
+  width: fit-content;
+  margin: 4px 0 30px;
+  padding: 13px 16px;
+  border: 1px solid rgba(245, 130, 40, 0.58);
+  border-radius: 14px;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  color: #eef2f3 !important;
+  background: rgba(245, 130, 40, 0.1);
+}
+
+.event-early-bird span {
+  flex-basis: 100%;
+  color: #ffd0a8;
+  font-size: 0.86rem;
+  font-weight: 820;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.event-early-bird strong {
+  color: var(--white);
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.event-early-bird s {
+  color: #b9c5ca;
+  font-size: 1rem;
+}
+
+.event-early-bird small {
+  color: #d8e0e4;
+  font-size: 0.92rem;
+}
+
+.event-facts-grid > .event-price-fact {
+  position: relative;
+  background: rgba(245, 130, 40, 0.08);
+  box-shadow: inset 0 3px 0 var(--resilium-orange);
+}
+
+.event-facts-grid > .event-price-fact small,
+.event-facts-grid > .event-price-fact strong {
+  color: #9e4610;
+}
+
+.event-order-summary .event-price-summary {
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(245, 130, 40, 0.09);
+}
+
+.event-order-summary .event-price-summary dd {
+  display: grid;
+  gap: 3px;
+  text-align: right;
+}
+
+.event-order-summary .event-price-summary dd strong {
+  color: #f5a260;
+}
+
+.event-order-summary .event-price-summary dd span {
+  color: #c9d3d8;
+  font-size: 0.84rem;
+  font-weight: 650;
+}
+
+@media (max-width: 640px) {
+  .event-early-bird {
+    width: 100%;
+  }
+
+  .event-order-summary .event-price-summary dd {
+    text-align: left;
+  }
+}
