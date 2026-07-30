@@ -2,10 +2,118 @@
   const toggle = document.querySelector(".menu-toggle");
   const menu = document.querySelector(".nav-links, .navlinks");
 
+  const buildNavigationGroups = (navigation) => {
+    if (!navigation) return [];
+
+    const directLinks = Array.from(navigation.children).filter((element) =>
+      element.matches("a")
+    );
+    const findLink = (fragment) =>
+      directLinks.find((link) => (link.getAttribute("href") || "").includes(fragment));
+    const audienceLinks = [
+      findLink("firmy-a-organizace.html"),
+      findLink("lideri-a-manazeri.html"),
+      findLink("jednotlivci.html"),
+    ].filter(Boolean);
+
+    // Contextual landing pages keep their purpose-built navigation.
+    if (audienceLinks.length !== 3) return [];
+
+    const createGroup = (label, links, beforeElement) => {
+      const usableLinks = links.filter(Boolean);
+      if (!usableLinks.length || !beforeElement) return null;
+
+      const group = document.createElement("div");
+      const trigger = document.createElement("button");
+      const panel = document.createElement("div");
+      const panelId = `nav-group-${label
+        .toLocaleLowerCase("cs")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9]+/g, "-")}`;
+
+      group.className = "nav-menu-group";
+      trigger.type = "button";
+      trigger.className = "nav-menu-trigger";
+      trigger.setAttribute("aria-controls", panelId);
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.innerHTML = `${label} <span aria-hidden="true">↓</span>`;
+      panel.className = "nav-menu-panel";
+      panel.id = panelId;
+
+      navigation.insertBefore(group, beforeElement);
+      group.append(trigger, panel);
+      usableLinks.forEach((link) => panel.appendChild(link));
+
+      if (usableLinks.some((link) => link.matches('[aria-current="page"], .active'))) {
+        trigger.classList.add("is-current");
+      }
+
+      return group;
+    };
+
+    const audienceGroup = createGroup("Pro koho", audienceLinks, audienceLinks[0]);
+    const situationsLink = findLink("situace.html");
+    let methodLink = directLinks.find((link) =>
+      (link.getAttribute("href") || "").includes("#metoda")
+    );
+
+    if (!methodLink && situationsLink) {
+      methodLink = document.createElement("a");
+      methodLink.href = document.body.classList.contains("home-page")
+        ? "#metoda"
+        : "index.html#metoda";
+      methodLink.textContent = "Jak trénink funguje";
+    }
+
+    const helpBefore = methodLink?.isConnected ? methodLink : situationsLink;
+    const helpGroup = createGroup(
+      "Jak pomáháme",
+      [methodLink, situationsLink],
+      helpBefore
+    );
+    const experimentLink = findLink("experiment-pod-tlakem.html");
+    const articlesLink = findLink("clanky.html");
+    const exploreBefore = experimentLink || articlesLink;
+    const exploreGroup = createGroup(
+      "Vyzkoušet a číst",
+      [experimentLink, articlesLink],
+      exploreBefore
+    );
+
+    const groups = [audienceGroup, helpGroup, exploreGroup].filter(Boolean);
+    const primaryAction = directLinks.find((link) => link.matches(".btn"));
+    if (primaryAction) {
+      groups.forEach((group) => navigation.insertBefore(group, primaryAction));
+    }
+
+    return groups;
+  };
+
+  const navigationGroups = buildNavigationGroups(menu);
+  const closeNavigationGroups = (exceptGroup = null) => {
+    navigationGroups.forEach((group) => {
+      if (group === exceptGroup) return;
+      group.classList.remove("open");
+      group.querySelector(".nav-menu-trigger")?.setAttribute("aria-expanded", "false");
+    });
+  };
+
+  navigationGroups.forEach((group) => {
+    const trigger = group.querySelector(".nav-menu-trigger");
+    trigger?.addEventListener("click", () => {
+      const shouldOpen = trigger.getAttribute("aria-expanded") !== "true";
+      closeNavigationGroups(shouldOpen ? group : null);
+      group.classList.toggle("open", shouldOpen);
+      trigger.setAttribute("aria-expanded", String(shouldOpen));
+    });
+  });
+
   if (toggle && menu) {
     const closeMenu = () => {
       menu.classList.remove("open");
       toggle.setAttribute("aria-expanded", "false");
+      closeNavigationGroups();
     };
 
     toggle.addEventListener("click", () => {
@@ -29,32 +137,6 @@
       if (!menu.contains(event.target) && !toggle.contains(event.target)) {
         closeMenu();
       }
-    });
-  }
-
-  const audienceToggle = document.querySelector(".nav-audience-toggle");
-  const audienceLinks = document.querySelector(".nav-audience-links");
-
-  if (audienceToggle && audienceLinks) {
-    const closeAudienceMenu = () => {
-      audienceLinks.classList.remove("open");
-      audienceToggle.classList.remove("open");
-      audienceToggle.setAttribute("aria-expanded", "false");
-    };
-
-    audienceToggle.addEventListener("click", () => {
-      const isOpen = audienceToggle.getAttribute("aria-expanded") === "true";
-      audienceLinks.classList.toggle("open", !isOpen);
-      audienceToggle.classList.toggle("open", !isOpen);
-      audienceToggle.setAttribute("aria-expanded", String(!isOpen));
-    });
-
-    audienceLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", closeAudienceMenu);
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") closeAudienceMenu();
     });
   }
 

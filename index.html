@@ -699,8 +699,8 @@
       .programs-grid { grid-template-columns: 1fr; }
     }
 </style>
-<link href="assets/resilium.css?v=20260729-headline5" rel="stylesheet"/>
-<link href="assets/homepage-mobile.css?v=20260730-mobile1" rel="stylesheet"/>
+<link href="assets/resilium.css?v=20260730-flow6" rel="stylesheet"/>
+<link href="assets/homepage-mobile.css?v=20260730-flow2" rel="stylesheet"/>
 </head>
 <body class="home-page">
 <nav aria-label="Hlavní navigace" class="nav">
@@ -708,14 +708,9 @@
 <a aria-label="Resilium – úvodní stránka" class="logo" href="index.html#top"><img alt="Resilium" height="48" src="assets/resilium-logo.webp" width="68"/></a>
 <button aria-controls="mainNav" aria-expanded="false" aria-label="Otevřít hlavní menu" class="menu-toggle" type="button"><span></span></button>
 <div class="nav-links" id="mainNav">
-<div class="nav-audience-group">
-<button aria-controls="navAudienceLinks" aria-expanded="false" class="nav-audience-toggle" type="button">Pro koho <span aria-hidden="true">↓</span></button>
-<div class="nav-audience-links" id="navAudienceLinks">
 <a href="firmy-a-organizace.html">Firmy a organizace</a>
 <a href="lideri-a-manazeri.html">Lídři a manažeři</a>
 <a href="jednotlivci.html">Jednotlivci</a>
-</div>
-</div>
 <a href="situace.html">Kde pomáháme</a>
 <a href="#metoda">Jak trénink funguje</a>
 <a href="experiment-pod-tlakem.html">Stresový experiment</a>
@@ -766,18 +761,8 @@
 <a class="btn btn-primary" href="resilium-trenink-praha-20-10-2026.html">Prohlédnout veřejný trénink</a>
 </div>
 </aside>
-<aside aria-label="Interaktivní stresový experiment" class="map-launch">
-<div class="wrap map-launch-inner">
-<div class="map-launch-copy">
-<p class="map-launch-kicker">Nový interaktivní experiment · 3 minuty</p>
-<h2>Co udělá časový tlak s vaší přesností?</h2>
-<p>Dvě kola jednoduchých rozhodnutí ukážou, co se změní v rychlosti a chybovosti — a kterých signálů v těle a pozornosti si lze všimnout ještě před chybou.</p>
-</div>
-<a class="btn btn-primary preserve-campaign" href="experiment-pod-tlakem.html">Spustit 3min experiment</a>
-</div>
-</aside>
-<main>
-<section class="section section-soft segment-section" data-mobile-panel data-mobile-panel-label="Porovnat oblasti tréninku" data-mobile-panel-less="Skrýt porovnání oblastí" id="segmenty">
+<main class="home-flow">
+<section aria-hidden="true" class="section section-soft segment-section" hidden id="segmenty">
 <div class="wrap">
 <div class="section-head">
 <p class="eyebrow">Příprava podle vaší role a situace</p>
@@ -820,7 +805,7 @@
 </div>
 </div>
 </section>
-<section class="section problem-section">
+<section class="section problem-section home-insight-start">
 <div class="wrap">
 <div class="section-head">
 <p class="eyebrow">Pod tlakem nerozhodují jen znalosti a zkušenosti</p>
@@ -958,7 +943,17 @@
 </figure>
 </div>
 </section>
-<section class="section section-pale" id="metoda">
+<aside aria-label="Interaktivní stresový experiment" class="map-launch">
+<div class="wrap map-launch-inner">
+<div class="map-launch-copy">
+<p class="map-launch-kicker">Nový interaktivní experiment · 3 minuty</p>
+<h2>Co udělá časový tlak s vaší přesností?</h2>
+<p>Dvě kola jednoduchých rozhodnutí ukážou, co se změní v rychlosti a chybovosti — a kterých signálů v těle a pozornosti si lze všimnout ještě před chybou.</p>
+</div>
+<a class="btn btn-primary preserve-campaign" href="experiment-pod-tlakem.html">Spustit 3min experiment</a>
+</div>
+</aside>
+<section class="section section-pale home-offer-start" id="metoda">
 <div class="wrap method-layout">
 <div>
 <p class="eyebrow">Psychofyzický trénink Resilium</p>
@@ -1082,7 +1077,7 @@
       <a class="text-link" href="resilium-trenink-praha-20-10-2026.html">Prohlédnout veřejný trénink.</a>
 </div>
 </div>
-</section><section class="section section-pale" id="evidence">
+</section><section class="section section-pale home-trust-start" id="evidence">
 <div class="wrap">
 <div class="section-head">
 <p class="eyebrow">Důvěryhodnost a vědecký základ</p>
@@ -1300,7 +1295,7 @@
 </details>
 </div>
 </section>
-<section class="section section-soft">
+<section aria-hidden="true" class="section section-soft" hidden>
 <div class="wrap">
 <div class="section-head">
 <p class="eyebrow">Kde chcete začít?</p>
@@ -1600,6 +1595,6 @@
 
     setSegment("companies");
   </script>
-<script src="assets/resilium.js"></script>
+<script src="assets/resilium.js?v=20260730-nav2"></script>
 </body>
 </html>
