@@ -32,6 +32,104 @@
     });
   }
 
+  const audienceToggle = document.querySelector(".nav-audience-toggle");
+  const audienceLinks = document.querySelector(".nav-audience-links");
+
+  if (audienceToggle && audienceLinks) {
+    const closeAudienceMenu = () => {
+      audienceLinks.classList.remove("open");
+      audienceToggle.classList.remove("open");
+      audienceToggle.setAttribute("aria-expanded", "false");
+    };
+
+    audienceToggle.addEventListener("click", () => {
+      const isOpen = audienceToggle.getAttribute("aria-expanded") === "true";
+      audienceLinks.classList.toggle("open", !isOpen);
+      audienceToggle.classList.toggle("open", !isOpen);
+      audienceToggle.setAttribute("aria-expanded", String(!isOpen));
+    });
+
+    audienceLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeAudienceMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeAudienceMenu();
+    });
+  }
+
+  const mobileDisclosureQuery = window.matchMedia("(max-width: 720px)");
+
+  document.querySelectorAll("[data-mobile-disclosure]").forEach((collection, collectionIndex) => {
+    const limit = Number.parseInt(collection.dataset.mobileLimit || "3", 10);
+    const items = Array.from(collection.children);
+    if (!Number.isFinite(limit) || items.length <= limit) return;
+
+    const control = document.createElement("button");
+    const collectionId = collection.id || `mobile-disclosure-${collectionIndex + 1}`;
+    collection.id = collectionId;
+    collection.classList.add("mobile-disclosure-ready");
+    control.type = "button";
+    control.className = "mobile-disclosure-toggle";
+    control.setAttribute("aria-controls", collectionId);
+    control.setAttribute("aria-expanded", "false");
+
+    const updateDisclosure = (expanded) => {
+      collection.classList.toggle("mobile-expanded", expanded);
+      control.setAttribute("aria-expanded", String(expanded));
+      control.innerHTML = `${expanded
+        ? collection.dataset.mobileLess || "Zobrazit méně"
+        : collection.dataset.mobileMore || "Zobrazit další"} <span aria-hidden="true">${expanded ? "↑" : "↓"}</span>`;
+    };
+
+    control.addEventListener("click", () => {
+      updateDisclosure(control.getAttribute("aria-expanded") !== "true");
+    });
+
+    collection.insertAdjacentElement("afterend", control);
+    updateDisclosure(false);
+
+    const resetDesktopState = (event) => {
+      if (!event.matches) updateDisclosure(false);
+    };
+    if (mobileDisclosureQuery.addEventListener) {
+      mobileDisclosureQuery.addEventListener("change", resetDesktopState);
+    }
+  });
+
+  document.querySelectorAll("[data-mobile-panel]").forEach((panel, panelIndex) => {
+    const control = document.createElement("button");
+    const panelId = panel.id || `mobile-panel-${panelIndex + 1}`;
+    panel.id = panelId;
+    panel.classList.add("mobile-panel-ready");
+    control.type = "button";
+    control.className = "mobile-panel-toggle";
+    control.setAttribute("aria-controls", panelId);
+    control.setAttribute("aria-expanded", "false");
+
+    const updatePanel = (expanded) => {
+      panel.classList.toggle("mobile-expanded", expanded);
+      control.setAttribute("aria-expanded", String(expanded));
+      control.innerHTML = `${expanded
+        ? panel.dataset.mobilePanelLess || "Skrýt podrobnosti"
+        : panel.dataset.mobilePanelLabel || "Zobrazit podrobnosti"} <span aria-hidden="true">${expanded ? "↑" : "↓"}</span>`;
+    };
+
+    control.addEventListener("click", () => {
+      updatePanel(control.getAttribute("aria-expanded") !== "true");
+    });
+
+    panel.insertAdjacentElement("beforebegin", control);
+    updatePanel(false);
+
+    const resetDesktopState = (event) => {
+      if (!event.matches) updatePanel(false);
+    };
+    if (mobileDisclosureQuery.addEventListener) {
+      mobileDisclosureQuery.addEventListener("change", resetDesktopState);
+    }
+  });
+
   document.querySelectorAll("form[data-mailto-form]").forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();

@@ -700,18 +700,25 @@
     }
 </style>
 <link href="assets/resilium.css?v=20260729-headline5" rel="stylesheet"/>
+<link href="assets/homepage-mobile.css?v=20260730-mobile1" rel="stylesheet"/>
 </head>
-<body>
+<body class="home-page">
 <nav aria-label="Hlavní navigace" class="nav">
 <div class="wrap nav-inner">
 <a aria-label="Resilium – úvodní stránka" class="logo" href="index.html#top"><img alt="Resilium" height="48" src="assets/resilium-logo.webp" width="68"/></a>
 <button aria-controls="mainNav" aria-expanded="false" aria-label="Otevřít hlavní menu" class="menu-toggle" type="button"><span></span></button>
 <div class="nav-links" id="mainNav">
+<div class="nav-audience-group">
+<button aria-controls="navAudienceLinks" aria-expanded="false" class="nav-audience-toggle" type="button">Pro koho <span aria-hidden="true">↓</span></button>
+<div class="nav-audience-links" id="navAudienceLinks">
 <a href="firmy-a-organizace.html">Firmy a organizace</a>
 <a href="lideri-a-manazeri.html">Lídři a manažeři</a>
 <a href="jednotlivci.html">Jednotlivci</a>
-<a href="experiment-pod-tlakem.html">Stresový experiment</a>
+</div>
+</div>
 <a href="situace.html">Kde pomáháme</a>
+<a href="#metoda">Jak trénink funguje</a>
+<a href="experiment-pod-tlakem.html">Stresový experiment</a>
 <a href="clanky.html">Články</a>
 <a aria-label="Veřejný trénink pro jednotlivce – Praha 20. 10. 2026" class="btn btn-primary" href="resilium-trenink-praha-20-10-2026.html">Veřejný trénink 20. 10.</a>
 </div>
@@ -727,7 +734,7 @@
         výkon, bezpečnost nebo reputaci.
       </p>
 <div class="hero-actions">
-<a class="btn btn-primary" href="#segmenty">Vybrat oblast tréninku</a>
+<a class="btn btn-primary" href="#pro-koho">Vybrat oblast tréninku</a>
 <a class="btn btn-secondary" href="#metoda">Jak psychofyzický trénink funguje</a>
 </div>
 <div class="hero-proof">
@@ -737,7 +744,7 @@
 </div>
 </div>
 </header>
-<section aria-labelledby="audienceNavigationTitle" class="audience-navigation">
+<section aria-labelledby="audienceNavigationTitle" class="audience-navigation" id="pro-koho">
 <div class="wrap">
 <div class="audience-navigation-head">
 <p class="eyebrow">Vyberte svou oblast</p>
@@ -770,7 +777,7 @@
 </div>
 </aside>
 <main>
-<section class="section section-soft segment-section" id="segmenty">
+<section class="section section-soft segment-section" data-mobile-panel data-mobile-panel-label="Porovnat oblasti tréninku" data-mobile-panel-less="Skrýt porovnání oblastí" id="segmenty">
 <div class="wrap">
 <div class="section-head">
 <p class="eyebrow">Příprava podle vaší role a situace</p>
@@ -914,7 +921,7 @@
 <p class="lead">Pozornost, pracovní paměť, slova a úsudek mohou být v náročné chvíli hůře dostupné. Včasná regulace vytváří prostor, abyste se mohli znovu opřít o své schopnosti a zvolit další krok.</p>
 <a class="btn btn-primary" href="#metoda">Jak Resilium trénuje bod vlivu</a>
 </div>
-<figure class="response-contrast-card">
+<figure class="response-contrast-card" data-mobile-panel data-mobile-panel-label="Zobrazit srovnání" data-mobile-panel-less="Skrýt srovnání">
 <figcaption>
 <span>Co se mění v rozhodující chvíli</span>
 <strong>Schopnosti zůstávají. Mění se přístup k nim.</strong>
@@ -974,7 +981,7 @@
 <img alt="Lektor Resilium vysvětluje další postup skupině účastníků" decoding="async" height="960" loading="lazy" src="assets/images/resilium-nove/lektor-skupina-stoji.webp" width="1639"/>
 </figure>
 </div>
-<div class="method-steps">
+<div class="method-steps" data-mobile-disclosure data-mobile-limit="3" data-mobile-more="Zobrazit další kroky" data-mobile-less="Zobrazit méně kroků">
 <article class="method-step">
 <div class="num">01</div>
 <div><h3>Řízená zátěž</h3><p>Bezpečně vytvoříme podmínky, ve kterých se projeví autentická reakce.</p></div>
@@ -1008,7 +1015,7 @@
             Cílem je zachovat více možností, jak jednat.
           </p>
 </div>
-<div class="benefit-grid">
+<div class="benefit-grid" data-mobile-disclosure data-mobile-limit="3" data-mobile-more="Zobrazit další přínosy" data-mobile-less="Zobrazit méně přínosů">
 <article class="card benefit-card"><div class="num">01</div><h3>Dřívější rozpoznání</h3><p>Člověk pozná změnu dříve, než reakce výrazně ovlivní jeho jednání.</p></article>
 <article class="card benefit-card"><div class="num">02</div><h3>Regulace dalšího rozvoje</h3><p>Dokáže pracovat s aktivací těla a pozorností přímo v situaci.</p></article>
 <article class="card benefit-card"><div class="num">03</div><h3>Více možností</h3><p>Získá větší prostor pro odpověď, rozhodnutí, hranici nebo bezpečný odchod.</p></article>
@@ -1024,7 +1031,7 @@
 <p class="eyebrow">Situace, které trénujeme</p>
 <h2>Trénujeme konkrétní jednání v situacích, které skutečně nastávají.</h2>
 </div>
-<div class="use-grid">
+<div class="use-grid" data-mobile-disclosure data-mobile-limit="3" data-mobile-more="Zobrazit další situace" data-mobile-less="Zobrazit méně situací">
 <article class="card use-card"><h3>Konflikt a eskalace</h3><p>Obrannost, protiútok, ztráta naslouchání, prudká komunikace nebo ústup.</p><div class="audiences">Firmy · Lídři · Jednotlivci</div></article>
 <article class="card use-card"><h3>Náročný klient</h3><p>Verbální agrese, tlak, provokace, deeskalace a bezpečný způsob ukončení situace.</p><div class="audiences">Firmy · Organizace</div></article>
 <article class="card use-card"><h3>Rozhodování v nejistotě</h3><p>Časová tíseň, lpění na první variantě, odkládání rozhodnutí nebo menší flexibilita.</p><div class="audiences">Firmy · Lídři</div></article>
@@ -1044,7 +1051,7 @@
         Delší programy umožňují více scénářů, opakovaný nácvik a hlubší přenos do práce týmu.
       </p>
 </div>
-<div class="programs-grid">
+<div class="programs-grid" data-mobile-disclosure data-mobile-limit="3" data-mobile-more="Zobrazit další programy" data-mobile-less="Zobrazit méně programů">
 <article class="program-card">
 <span class="duration">4 hodiny</span>
 <h3>Resilium START</h3>

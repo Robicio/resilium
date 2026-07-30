@@ -1,0 +1,258 @@
+/* Homepage mobile-first simplification.
+   The source copy stays intact. Long groups are progressively disclosed on
+   small screens and the homepage uses a calmer, repeatable visual system. */
+.home-page .nav-audience-group,
+.home-page .nav-audience-links {
+  display: contents;
+}
+
+.home-page .nav-audience-toggle {
+  display: none;
+}
+
+.home-page .nav-audience-links > a {
+  position: relative;
+  color: #d5dce0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.18s ease;
+}
+
+.home-page .nav-audience-links > a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--resilium-orange);
+  transform: scaleX(0);
+  transition: transform 0.18s ease;
+}
+
+.home-page .nav-audience-links > a:hover {
+  color: var(--white);
+}
+
+.home-page .nav-audience-links > a:hover::after {
+  transform: scaleX(1);
+}
+
+.home-page main > .section:not(.section-dark):not(.lead-section) {
+  border-top: 1px solid rgba(42, 55, 63, 0.08);
+  background: #f3f4f2;
+}
+
+.home-page main > .section.section-dark,
+.home-page main > .section.lead-section {
+  border-top: 0;
+}
+
+.home-page .card,
+.home-page .program-card,
+.home-page .choice,
+.home-page details {
+  border-color: rgba(42, 55, 63, 0.12);
+  box-shadow: 0 14px 34px rgba(34, 45, 52, 0.06);
+}
+
+.mobile-disclosure-toggle,
+.mobile-panel-toggle {
+  display: none;
+}
+
+.home-page .mobile-cta {
+  display: none !important;
+}
+
+@media (max-width: 1280px) {
+  .home-page .nav-audience-group {
+    display: block;
+  }
+
+  .home-page .nav-audience-toggle {
+    width: 100%;
+    padding: 13px 14px;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #eef2f3;
+    font: inherit;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-align: left;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .home-page .nav-audience-toggle span {
+    transition: transform 0.2s ease;
+  }
+
+  .home-page .nav-audience-toggle.open span {
+    transform: rotate(180deg);
+  }
+
+  .home-page .nav-audience-links {
+    margin: 0 4px 8px;
+    padding: 5px;
+    display: none;
+    gap: 2px;
+    border-left: 2px solid var(--resilium-orange);
+    background: rgba(255, 255, 255, 0.045);
+  }
+
+  .home-page .nav-audience-links.open {
+    display: grid;
+  }
+
+  .home-page .nav-audience-links > a {
+    padding: 11px 13px;
+    display: block;
+    font-size: 1rem;
+    white-space: normal;
+  }
+
+  .home-page .nav-audience-links > a::after {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .home-page {
+    background: #f3f4f2;
+  }
+
+  .home-page .audience-navigation,
+  .home-page .map-launch {
+    background: #f3f4f2;
+  }
+
+  .home-page .section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .home-page .section-head,
+  .home-page .audience-navigation-head {
+    margin-bottom: 32px;
+  }
+
+  .home-page .section-head h2,
+  .home-page .audience-navigation-head h2,
+  .home-page .model-wrap > div:first-child h2,
+  .home-page .method-layout > div:first-child h2,
+  .home-page .response-contrast-copy h2,
+  .home-page .mentor-copy h2,
+  .home-page .lead-layout > div:first-child h2 {
+    max-width: 19ch;
+    font-size: clamp(2rem, 9.2vw, 2.7rem);
+    line-height: 1.04;
+  }
+
+  .home-page .section-head .lead,
+  .home-page .model-wrap > div:first-child .lead,
+  .home-page .method-layout > div:first-child .lead,
+  .home-page .response-contrast-copy .lead,
+  .home-page .mentor-copy p,
+  .home-page .lead-layout > div:first-child p {
+    text-align: left;
+  }
+
+  .home-page .problem-grid,
+  .home-page .benefit-grid,
+  .home-page .use-grid,
+  .home-page .programs-grid,
+  .home-page .evidence-grid,
+  .home-page .final-choices {
+    gap: 14px;
+  }
+
+  .home-page .card,
+  .home-page .program-card,
+  .home-page .choice {
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  .home-page .model,
+  .home-page .method-steps {
+    gap: 10px;
+  }
+
+  .home-page .response-model-section .model-step,
+  .home-page .method-step {
+    min-height: 0;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .home-page [data-mobile-disclosure].mobile-disclosure-ready:not(.mobile-expanded) > :nth-child(n + 4) {
+    display: none !important;
+  }
+
+  .home-page .mobile-disclosure-toggle,
+  .home-page .mobile-panel-toggle {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 16px;
+    padding: 12px 18px;
+    border: 1px solid rgba(42, 55, 63, 0.18);
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--ink);
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 750;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 10px 24px rgba(34, 45, 52, 0.06);
+    cursor: pointer;
+  }
+
+  .home-page .mobile-disclosure-toggle:hover,
+  .home-page .mobile-panel-toggle:hover {
+    border-color: rgba(244, 133, 44, 0.62);
+    background: var(--white);
+  }
+
+  .home-page .mobile-panel-ready:not(.mobile-expanded) {
+    display: none;
+  }
+
+  .home-page .mobile-panel-toggle {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  .home-page main > .mobile-panel-toggle {
+    width: calc(100% - 32px);
+    margin: 28px auto;
+  }
+
+  .home-page .response-contrast-layout {
+    gap: 24px;
+  }
+
+  .home-page .map-launch-inner {
+    gap: 22px;
+  }
+
+  .home-page .map-launch-copy p {
+    max-width: none;
+  }
+
+  .home-page .impact-strip {
+    gap: 10px;
+  }
+
+  .home-page details {
+    margin-bottom: 10px;
+  }
+}
