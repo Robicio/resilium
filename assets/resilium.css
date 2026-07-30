@@ -7614,3 +7614,50 @@ body:not(.event-landing) h2 {
     text-align: left;
   }
 }
+
+/* Desktop reading axis
+   Standard presentation pages use one left-hand reading edge and the full
+   content measure for section introductions. The approved public-event
+   landing page is intentionally excluded. */
+@media (min-width: 961px) {
+  body:not(.event-landing) .section-head,
+  body:not(.event-landing) .audience-navigation-head {
+    width: 100%;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  body:not(.event-landing) .section-head > .eyebrow,
+  body:not(.event-landing) .section-head > h2,
+  body:not(.event-landing) .section-head > .lead,
+  body:not(.event-landing) .section-head > p:not(.eyebrow),
+  body:not(.event-landing) .audience-navigation-head > .eyebrow,
+  body:not(.event-landing) .audience-navigation-head > h2,
+  body:not(.event-landing) .audience-navigation-head > p,
+  body:not(.event-landing) .model-wrap > div:first-child > .eyebrow,
+  body:not(.event-landing) .model-wrap > div:first-child > h2,
+  body:not(.event-landing) .method-layout > div:first-child > .eyebrow,
+  body:not(.event-landing) .method-layout > div:first-child > h2,
+  body:not(.event-landing) .response-contrast-copy > .eyebrow,
+  body:not(.event-landing) .response-contrast-copy > h2,
+  body:not(.event-landing) .mentor-copy > .eyebrow,
+  body:not(.event-landing) .mentor-copy > h2,
+  body:not(.event-landing) .lead-layout > div:first-child > .eyebrow,
+  body:not(.event-landing) .lead-layout > div:first-child > h2,
+  body:not(.event-landing) .stress-tool-copy > .eyebrow,
+  body:not(.event-landing) .stress-tool-copy > h2,
+  body:not(.event-landing) .grid2 > div:first-child > .eyebrow,
+  body:not(.event-landing) .grid2 > div:first-child > h2,
+  body:not(.event-landing) .situations-section-head > .eyebrow,
+  body:not(.event-landing) .situations-section-head > h2,
+  body:not(.event-landing) .section > .wrap:not(.grid2) > .eyebrow:first-child,
+  body:not(.event-landing) .section > .wrap:not(.grid2) > .eyebrow:first-child + h2 {
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+    text-align: left;
+    text-wrap: pretty;
+  }
+}

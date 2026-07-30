@@ -560,3 +560,97 @@
     border-radius: 0;
   }
 }
+
+/* Clear desktop hierarchy
+   Long introductions span the section before the supporting two-column
+   content starts. This reduces line count and keeps every heading on the same
+   left-hand reading axis. */
+@media (min-width: 961px) {
+  .home-page .section-head,
+  .home-page .audience-navigation-head,
+  .home-page .method-section-head,
+  .home-page .mentor-section-head {
+    width: 100%;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .home-page .section-head > .eyebrow,
+  .home-page .section-head > h2,
+  .home-page .section-head > .lead,
+  .home-page .section-head > p:not(.eyebrow),
+  .home-page .audience-navigation-head > .eyebrow,
+  .home-page .audience-navigation-head > h2,
+  .home-page .audience-navigation-head > p,
+  .home-page .method-section-head > .eyebrow,
+  .home-page .method-section-head > h2,
+  .home-page .method-section-head > .lead,
+  .home-page .mentor-section-head > .eyebrow,
+  .home-page .mentor-section-head > h2 {
+    width: 100%;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+    text-align: left;
+    text-wrap: pretty;
+  }
+
+  .home-page .method-section-head,
+  .home-page .mentor-section-head {
+    margin-bottom: clamp(42px, 4vw, 62px);
+  }
+
+  .home-page .method-layout,
+  .home-page .mentor {
+    align-items: start;
+  }
+
+  .home-page .lead-section .lead-layout {
+    align-items: start;
+  }
+
+  .home-page .lead-section .lead-layout > div:first-child {
+    padding-top: 10px;
+  }
+}
+
+/* The experiment entry is a deliberate conversion panel. It remains dark on
+   every viewport so its white copy never disappears on the calm page surface. */
+.home-page .map-launch {
+  padding-top: clamp(52px, 5vw, 74px);
+  padding-bottom: clamp(52px, 5vw, 74px);
+  color: #fff;
+  background:
+    radial-gradient(circle at 82% 30%, rgba(245, 130, 40, 0.2), transparent 18rem),
+    linear-gradient(135deg, #4b565e 0%, #37434c 100%);
+}
+
+.home-page .map-launch-copy,
+.home-page .map-launch-copy > .map-launch-kicker,
+.home-page .map-launch-copy > h2,
+.home-page .map-launch-copy > p:not(.map-launch-kicker) {
+  max-width: none;
+  margin-left: 0;
+  text-align: left;
+}
+
+.home-page .map-launch-copy > .map-launch-kicker {
+  color: #ffc28e;
+}
+
+.home-page .map-launch-copy > h2 {
+  color: #fff;
+}
+
+.home-page .map-launch-copy > p:not(.map-launch-kicker) {
+  color: #e0e6e9;
+}
+
+@media (max-width: 960px) {
+  .home-page .method-section-head,
+  .home-page .mentor-section-head {
+    margin-bottom: 30px;
+  }
+}
