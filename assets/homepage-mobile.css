@@ -364,3 +364,199 @@
     border-left: 0;
   }
 }
+
+/* Explanations stay on the calm reading surface.
+   Dark brand panels are reserved for navigation and conversion; mechanisms
+   and comparisons use open space, fine rules and one orange point of change. */
+.home-page .response-model-section.section-dark {
+  padding: clamp(72px, 7vw, 108px) 0;
+  color: var(--ink);
+  background: #eef0ee;
+}
+
+.home-page .response-model-section.section-dark > .wrap {
+  width: min(100% - 48px, var(--max));
+  padding: 0;
+  overflow: visible;
+  color: var(--ink);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.home-page .response-model-section.section-dark > .wrap::after {
+  display: none;
+}
+
+.home-page .response-model-section .eyebrow {
+  color: var(--brand-text);
+}
+
+.home-page .response-model-section h2 {
+  color: var(--ink);
+}
+
+.home-page .response-model-section .lead {
+  color: var(--muted);
+}
+
+.home-page .response-model-section .model {
+  gap: 30px 42px;
+}
+
+.home-page .response-model-section .model::before {
+  display: none;
+}
+
+.home-page .response-model-section .model-step,
+.home-page .response-model-section .model-step.highlight {
+  min-height: 138px;
+  padding: 26px 4px 24px;
+  border: 0;
+  border-top: 1px solid rgba(42, 55, 63, 0.2);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.home-page .response-model-section .model-step.highlight {
+  border-top-color: var(--resilium-orange);
+}
+
+.home-page .response-model-section .model-step > small,
+.home-page .response-model-section .model-step.highlight > small {
+  color: #3b4b54;
+  border: 1px solid #aab5ba;
+  border-radius: 50%;
+  background: #f8f9f7;
+  background-image: none;
+  box-shadow: none;
+}
+
+.home-page .response-model-section .model-step.highlight > small {
+  color: var(--cta-ink);
+  border-color: var(--resilium-orange);
+  background: var(--resilium-orange);
+}
+
+.home-page .response-model-section .model-step strong,
+.home-page .response-model-section .model-step.highlight strong {
+  color: var(--ink);
+}
+
+.home-page .response-model-section .model-step-copy span,
+.home-page .response-model-section .model-step.highlight .model-step-copy span {
+  color: var(--muted);
+}
+
+/* The comparison keeps its meaning without becoming another dark microsite. */
+.home-page .response-contrast-section {
+  background: #f7f7f5;
+}
+
+.home-page .response-contrast-card {
+  padding: 34px 0;
+  color: var(--ink);
+  border: 0;
+  border-top: 1px solid rgba(42, 55, 63, 0.18);
+  border-bottom: 1px solid rgba(42, 55, 63, 0.18);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.home-page .response-contrast-card::before {
+  display: none;
+}
+
+.home-page .response-contrast-card figcaption span {
+  color: var(--brand-text);
+}
+
+.home-page .response-contrast-card figcaption strong,
+.home-page .response-contrast-card blockquote {
+  color: var(--ink);
+}
+
+.home-page .capability-panel {
+  border: 1px solid rgba(42, 55, 63, 0.16);
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.home-page .capability-panel-regulated {
+  border-color: rgba(245, 130, 40, 0.62);
+  background: rgba(245, 130, 40, 0.045);
+}
+
+.home-page .capability-kicker {
+  color: var(--brand-text);
+}
+
+.home-page .capability-panel > strong,
+.home-page .capability-panel li span {
+  color: var(--ink);
+}
+
+.home-page .capability-panel li {
+  border-left-color: #a9b3b8;
+  background: #f0f2f1;
+}
+
+.home-page .capability-panel-regulated li {
+  border-left-color: var(--resilium-orange);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.home-page .capability-panel li em {
+  color: var(--muted);
+}
+
+.home-page .capability-pivot {
+  color: var(--ink);
+  border: 1px solid var(--resilium-orange);
+  background: #fff7f0;
+  box-shadow: none;
+}
+
+.home-page .capability-pivot span {
+  color: var(--brand-text);
+}
+
+.home-page .capability-pivot strong {
+  color: var(--ink);
+}
+
+.home-page .capability-pivot small {
+  color: #71411f;
+}
+
+.home-page .response-contrast-disclaimer {
+  color: var(--muted);
+  border-top-color: rgba(42, 55, 63, 0.15);
+}
+
+@media (max-width: 720px) {
+  .home-page .response-model-section.section-dark {
+    padding: 68px 0;
+  }
+
+  .home-page .response-model-section.section-dark > .wrap {
+    width: min(100% - 32px, var(--max));
+    padding: 0;
+  }
+
+  .home-page .response-model-section .model {
+    gap: 0;
+  }
+
+  .home-page .response-model-section .model-step,
+  .home-page .response-model-section .model-step.highlight {
+    min-height: 0;
+    padding: 24px 0;
+  }
+
+  .home-page .response-contrast-card {
+    padding: 26px 0;
+    border-radius: 0;
+  }
+}
