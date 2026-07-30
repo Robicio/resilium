@@ -292,3 +292,75 @@
     margin-bottom: 10px;
   }
 }
+
+/* One audience navigation is enough.
+   These three moments now work as recognition cues, not as a second set of
+   audience cards. They share one editorial field without pills, counters or
+   card chrome, so the reader sees examples rather than another decision. */
+.home-page .problem-examples-label {
+  margin: 0 0 14px;
+  color: var(--brand-text);
+  font-size: 1.05rem;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.home-page .problem-section .problem-examples-grid {
+  gap: 0;
+  border-top: 1px solid rgba(42, 55, 63, 0.18);
+  border-bottom: 1px solid rgba(42, 55, 63, 0.18);
+  counter-reset: none;
+}
+
+.home-page .problem-section .problem-example,
+.home-page .problem-section .problem-example:hover {
+  min-height: 0;
+  padding: 30px 32px 34px;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.home-page .problem-section .problem-example + .problem-example {
+  border-left: 1px solid rgba(42, 55, 63, 0.14);
+}
+
+.home-page .problem-section .problem-example::before {
+  display: none;
+  content: none;
+}
+
+.home-page .problem-section .problem-example blockquote {
+  margin: 0 0 15px;
+  font-size: clamp(1.18rem, 1.55vw, 1.36rem);
+  line-height: 1.38;
+}
+
+.home-page .problem-section .problem-example p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 720px) {
+  .home-page .problem-examples-label {
+    margin-bottom: 8px;
+  }
+
+  .home-page .problem-section .problem-examples-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .problem-section .problem-example,
+  .home-page .problem-section .problem-example:hover {
+    padding: 24px 0;
+  }
+
+  .home-page .problem-section .problem-example + .problem-example {
+    border-top: 1px solid rgba(42, 55, 63, 0.14);
+    border-left: 0;
+  }
+}
