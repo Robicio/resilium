@@ -80,10 +80,17 @@
 
 .xp-hero-actions {
   margin: 36px 0 42px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 22px;
+  max-width: 720px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.xp-hero-actions .btn {
+  width: 100%;
+  min-height: 70px;
+  padding-inline: 20px;
+  text-align: center;
 }
 
 .xp-text-link {
@@ -1164,6 +1171,10 @@
 
   .xp-hero h1 {
     font-size: clamp(3rem, 14vw, 4.4rem);
+  }
+
+  .xp-hero-actions {
+    grid-template-columns: 1fr;
   }
 
   .xp-facts li {
