@@ -1117,6 +1117,52 @@ summary:focus-visible {
   background: var(--panel);
 }
 
+.form-direct-contact {
+  margin-bottom: 24px;
+  padding: 15px 17px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  border: 1px solid #dce3e6;
+  border-radius: 14px;
+  color: var(--ink);
+  background: #f1f5f5;
+}
+
+.form-direct-contact > span {
+  flex: 1 0 100%;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.form-direct-contact strong {
+  white-space: nowrap;
+}
+
+.form-direct-contact a {
+  color: var(--ink);
+  font-weight: 850;
+  white-space: nowrap;
+  text-underline-offset: 4px;
+}
+
+.form-direct-contact small {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .form-direct-contact {
+    display: grid;
+    gap: 4px;
+  }
+
+  .form-direct-contact > span {
+    margin: 0 0 4px;
+  }
+}
+
 .form-grid,
 .formgrid {
   display: grid;
@@ -4095,6 +4141,15 @@ footer,
 .footer-contact a,
 .footer-links a {
   width: fit-content;
+}
+
+.footer-contact p + p {
+  margin-top: 10px;
+}
+
+.footer-contact small {
+  color: #cbd5dc;
+  font-size: 0.95rem;
 }
 
 .footer-legal {
