@@ -74,12 +74,14 @@
     );
     const experimentLink = findLink("experiment-pod-tlakem.html");
     const articlesLink = findLink("clanky.html");
+    const aboutLink = findLink("#o-nas");
+    const contactLink = findLink("#kontakt");
     if (experimentLink) experimentLink.textContent = "Stresový test";
 
     const groups = [audienceGroup, helpGroup].filter(Boolean);
     const primaryAction = directLinks.find((link) => link.matches(".btn"));
     if (primaryAction) {
-      [audienceGroup, helpGroup, experimentLink, articlesLink]
+      [audienceGroup, helpGroup, experimentLink, articlesLink, aboutLink, contactLink]
         .filter(Boolean)
         .forEach((item) => navigation.insertBefore(item, primaryAction));
     }
