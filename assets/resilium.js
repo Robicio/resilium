@@ -74,17 +74,14 @@
     );
     const experimentLink = findLink("experiment-pod-tlakem.html");
     const articlesLink = findLink("clanky.html");
-    const exploreBefore = experimentLink || articlesLink;
-    const exploreGroup = createGroup(
-      "Vyzkoušet a číst",
-      [experimentLink, articlesLink],
-      exploreBefore
-    );
+    if (experimentLink) experimentLink.textContent = "Stresový test";
 
-    const groups = [audienceGroup, helpGroup, exploreGroup].filter(Boolean);
+    const groups = [audienceGroup, helpGroup].filter(Boolean);
     const primaryAction = directLinks.find((link) => link.matches(".btn"));
     if (primaryAction) {
-      groups.forEach((group) => navigation.insertBefore(group, primaryAction));
+      [audienceGroup, helpGroup, experimentLink, articlesLink]
+        .filter(Boolean)
+        .forEach((item) => navigation.insertBefore(item, primaryAction));
     }
 
     return groups;
@@ -235,7 +232,7 @@
   });
 
   const stickyCta = document.querySelector(".mobile-cta");
-  const hero = document.querySelector(".hero");
+  const hero = document.querySelector("header");
 
   if (stickyCta && hero) {
     const stickyTargetHash = new URL(stickyCta.href, window.location.href).hash;
