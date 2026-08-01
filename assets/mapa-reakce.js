@@ -151,7 +151,7 @@
     const summary = Object.entries(domains)
       .map(([key, domain]) => `${domain.label}: ${scores[key]}/100`)
       .join("\n");
-    const subject = "Mapa reakce pod tlakem – chci probrat výsledek";
+    const subject = "Můj profil pod tlakem – chci probrat výsledek";
     const body = `Dobrý den,\n\nvyplnil/a jsem Mapu reakce pod tlakem pro kontext „${contexts[contextKey]}“.\n\nMoje stručné shrnutí:\n${summary}\n\nNejvíc vystupuje: ${domains[focusKey].label}.\n\nRád/a bych probral/a, jak s touto reakcí prakticky pracovat.\n\n`;
     document.getElementById("shareResult").href = `mailto:info@allprosys.cz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Experiment pod tlakem | Resilium</title>
+  <title>Stresový test | Resilium</title>
   <meta name="description" content="Krátký interaktivní experiment porovná vaši přesnost a rychlost v klidném kole a pod rostoucím časovým tlakem. Bez registrace a bez hodnocení odolnosti.">
   <meta name="theme-color" content="#252e35">
   <meta property="og:title" content="Co udělá 90 sekund tlaku s vaší přesností?">
@@ -12,12 +12,12 @@
   <meta property="og:locale" content="cs_CZ">
   <meta property="og:image" content="/assets/experiment-tlak-og.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Experiment pod tlakem | Resilium">
+  <meta name="twitter:title" content="Stresový test | Resilium">
   <meta name="twitter:description" content="Krátký zážitkový experiment přesnosti, rychlosti a signálů tlaku.">
   <meta name="twitter:image" content="/assets/experiment-tlak-og.png">
   <link rel="icon" href="assets/resilium-logo.webp" type="image/webp">
-  <link rel="stylesheet" href="assets/resilium.css?v=20260730-align8">
-  <link rel="stylesheet" href="assets/experiment-tlak.css?v=20260728">
+  <link rel="stylesheet" href="assets/resilium.css?v=20260801-contact1">
+  <link rel="stylesheet" href="assets/experiment-tlak.css?v=20260801-choices2">
 </head>
 <body class="experiment-page">
   <nav class="nav xp-nav" aria-label="Hlavní navigace">
@@ -27,9 +27,11 @@
       </a>
       <button class="menu-toggle" type="button" aria-controls="mainNav" aria-expanded="false" aria-label="Otevřít hlavní menu"><span></span></button>
       <div class="nav-links" id="mainNav">
-        <a aria-current="page" href="experiment-pod-tlakem.html">Stresový experiment</a>
+        <a aria-current="page" href="experiment-pod-tlakem.html">Stresový test</a>
         <a href="#jak-to-funguje">Jak experiment funguje</a>
-        <a href="mapa-reakce-pod-tlakem.html">Mapa reakce</a>
+        <a href="resilium-trenink-praha-20-10-2026.html">Veřejný trénink</a>
+        <a href="index.html#o-nas">O nás</a>
+        <a href="index.html#kontakt">Kontakt</a>
         <a class="btn btn-primary preserve-campaign" href="#experiment">Spustit experiment</a>
       </div>
     </div>
@@ -38,18 +40,19 @@
   <header class="xp-hero" id="top">
     <div class="xp-hero-grid wrap">
       <div class="xp-hero-copy">
-        <p class="eyebrow">Zážitkový experiment · Resilium</p>
-        <h1>Co udělá 90 sekund tlaku s vaší přesností?</h1>
-        <p class="lead">Nejdřív několik jednoduchých rozhodnutí v klidu. Potom stejný typ úloh s časem, který se zkracuje. Uvidíte, co se změní ve výkonu — a čeho si lze všimnout ještě před chybou.</p>
-        <div class="xp-hero-actions">
-          <a class="btn btn-primary preserve-campaign" href="#experiment">Vyzkoušet na sobě</a>
-          <a class="xp-text-link" href="#jak-to-funguje">Co experiment měří <span aria-hidden="true">↓</span></a>
+        <p class="eyebrow">Stresový test · Resilium</p>
+        <h1>Co se s vámi děje pod tlakem?</h1>
+        <p class="lead">Vyberte si krátký praktický test, nebo orientační profil vlastní reakce.</p>
+        <div aria-label="Vyberte nástroj" class="xp-hero-actions">
+          <div class="xp-tool-choice">
+            <span class="xp-tool-label">Stresový test</span>
+            <a class="btn btn-primary preserve-campaign" href="#experiment">90 vteřin pod tlakem</a>
+          </div>
+          <div class="xp-tool-choice">
+            <span class="xp-tool-label">Profil reakce pod tlakem</span>
+            <a class="btn btn-primary preserve-campaign" href="mapa-reakce-pod-tlakem.html">Zjistit svůj profil</a>
+          </div>
         </div>
-        <ul class="xp-facts" aria-label="Základní informace">
-          <li><strong>2</strong><span>srovnatelná kola</span></li>
-          <li><strong>3 min</strong><span>bez registrace</span></li>
-          <li><strong>100 %</strong><span>ve vašem prohlížeči</span></li>
-        </ul>
       </div>
       <div class="xp-hero-visual" aria-hidden="true">
         <div class="xp-orbit xp-orbit-one"></div>
@@ -73,7 +76,7 @@
           <div class="xp-shell-head">
             <div>
               <p class="eyebrow">Váš experiment</p>
-              <h2 id="experimentTitle">Klid. Tlak. Rozdíl.</h2>
+              <h2 id="experimentTitle">Zjistěte, jak časový tlak ovlivní vaši přesnost a rozhodování.</h2>
             </div>
             <div class="xp-privacy"><span aria-hidden="true">●</span> Výsledky se nikam neodesílají</div>
           </div>
@@ -93,14 +96,10 @@
               <p class="xp-stage-count">Než začnete</p>
               <h3 id="introTitle" tabindex="-1">Nejde o test inteligence ani odolnosti.</h3>
               <p>V každé úloze vyberete číslo podle jednoduchého pravidla. Porovnáme dvě krátká kola. Ve druhém se bude zkracovat čas a přibude pocit naléhavosti.</p>
-              <div class="xp-boundary-note">
-                <strong>Bezpečná hranice</strong>
-                <p>Experiment můžete kdykoli ukončit. Pokud je vám časový tlak nepříjemný, nepokračujte. Výsledek je edukační snímek jednoho okamžiku, ne psychologická diagnóza.</p>
-              </div>
             </div>
             <div class="xp-start-card">
               <span class="xp-card-label">Připravte si</span>
-              <strong>3 minuty bez vyrušení</strong>
+              <strong>Stresový test. Jak na tom jste?</strong>
               <p>Odpovídat můžete kliknutím, dotykem nebo klávesami 1–4.</p>
               <button class="btn btn-primary" id="beginExperiment" type="button">Jdu do toho</button>
             </div>
@@ -323,14 +322,15 @@
   <footer>
     <div class="wrap footer-inner">
       <div class="footer-about"><img class="footer-brand" src="assets/resilium-logo.webp" width="78" height="56" alt="Resilium"><p>Psychofyzický trénink jednání pod tlakem.</p></div>
-      <div><p class="footer-heading">Navigace</p><div class="footer-links"><a href="index.html">Úvod</a><a href="experiment-pod-tlakem.html">Experiment pod tlakem</a><a href="mapa-reakce-pod-tlakem.html">Mapa reakce pod tlakem</a><a href="jednotlivci.html">Jednotlivci</a><a href="clanky.html">Články</a></div></div>
+      <div><p class="footer-heading">Navigace</p><div class="footer-links"><a href="index.html">Úvod</a><a href="experiment-pod-tlakem.html">Stresový test</a><a href="mapa-reakce-pod-tlakem.html">Můj profil pod tlakem</a><a href="jednotlivci.html">Jednotlivci</a><a href="clanky.html">Články</a></div></div>
       <div class="footer-company"><p class="footer-heading">Provozovatel</p><address><strong>Allprosys.cz s.r.o.</strong><br>Zámostní 1155/27<br>710 00 Ostrava<br>IČ: 06365329<br>DIČ: CZ06365329</address><p class="footer-registry">Zapsaná v obchodním rejstříku vedeném Krajským soudem v Ostravě, oddíl C, vložka 71645.</p></div>
-      <div class="footer-contact"><p class="footer-heading">Kontakt a právní informace</p><p><a href="mailto:info@allprosys.cz">info@allprosys.cz</a></p><p><a href="https://www.resilium.cz">www.resilium.cz</a></p><p><a href="https://www.resilium.cz/ochrana-osobnich-udaju">Ochrana osobních údajů</a></p></div>
+      <div class="footer-contact"><p class="footer-heading">Kontakt a právní informace</p><p><strong>Mgr. Radim Končítek</strong><br><a href="tel:+420724462744">+420 724 462 744</a><br><small>Po–Pá 8:00–18:00</small></p><p><strong>Organizační informace</strong><br><a href="tel:+420774295064">+420 774 295 064</a></p><p><a href="mailto:info@allprosys.cz">info@allprosys.cz</a></p><p><a href="https://www.resilium.cz">www.resilium.cz</a></p><p><a href="https://www.resilium.cz/ochrana-osobnich-udaju">Ochrana osobních údajů</a></p></div>
     </div>
     <div class="wrap footer-legal"><p>© Resilium / Allprosys.cz s.r.o. Všechna práva vyhrazena.</p><p>Experiment je edukační zážitek. Nenahrazuje psychologickou diagnostiku, psychoterapii ani zdravotní péči.</p></div>
   </footer>
+  <a aria-label="Veřejný trénink pro jednotlivce – Praha 20. 10. 2026" class="btn btn-primary mobile-cta" href="resilium-trenink-praha-20-10-2026.html">Veřejný trénink 20. 10.</a>
 
-  <script src="assets/resilium.js?v=20260730-nav2"></script>
+  <script src="assets/resilium.js?v=20260801-nav6"></script>
   <script src="assets/experiment-tlak.js?v=1"></script>
 </body>
 </html>

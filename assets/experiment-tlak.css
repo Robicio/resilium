@@ -80,10 +80,32 @@
 
 .xp-hero-actions {
   margin: 36px 0 42px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 22px;
+  max-width: 720px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.xp-tool-choice {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.xp-tool-label {
+  color: var(--xp-orange-soft);
+  font-size: 0.92rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.xp-hero-actions .btn {
+  width: 100%;
+  min-height: 70px;
+  padding-inline: 20px;
+  text-align: center;
 }
 
 .xp-text-link {
@@ -1166,6 +1188,10 @@
     font-size: clamp(3rem, 14vw, 4.4rem);
   }
 
+  .xp-hero-actions {
+    grid-template-columns: 1fr;
+  }
+
   .xp-facts li {
     flex: 1 1 130px;
   }
@@ -1279,6 +1305,34 @@
   .xp-example > div {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* Match the site's single left-hand reading axis. */
+.experiment-page .xp-method-head,
+.experiment-page .xp-closing-inner > div:first-child {
+  width: 100%;
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+  text-align: left;
+}
+
+.experiment-page .xp-method-head > .eyebrow,
+.experiment-page .xp-method-head > h2,
+.experiment-page .xp-method-head > .lead,
+.experiment-page .xp-closing-inner > div:first-child > .eyebrow,
+.experiment-page .xp-closing-inner > div:first-child > h2,
+.experiment-page .xp-closing-inner > div:first-child > p:not(.eyebrow) {
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+  text-align: left;
+  text-wrap: pretty;
+}
+
+.experiment-page .xp-method-head > .lead,
+.experiment-page .xp-closing-inner > div:first-child > p:not(.eyebrow) {
+  width: min(100%, 1280px);
 }
 
 @media (prefers-reduced-motion: reduce) {

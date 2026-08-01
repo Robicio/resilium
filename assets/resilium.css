@@ -1117,6 +1117,52 @@ summary:focus-visible {
   background: var(--panel);
 }
 
+.form-direct-contact {
+  margin-bottom: 24px;
+  padding: 15px 17px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  border: 1px solid #dce3e6;
+  border-radius: 14px;
+  color: var(--ink);
+  background: #f1f5f5;
+}
+
+.form-direct-contact > span {
+  flex: 1 0 100%;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.form-direct-contact strong {
+  white-space: nowrap;
+}
+
+.form-direct-contact a {
+  color: var(--ink);
+  font-weight: 850;
+  white-space: nowrap;
+  text-underline-offset: 4px;
+}
+
+.form-direct-contact small {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .form-direct-contact {
+    display: grid;
+    gap: 4px;
+  }
+
+  .form-direct-contact > span {
+    margin: 0 0 4px;
+  }
+}
+
 .form-grid,
 .formgrid {
   display: grid;
@@ -4097,6 +4143,15 @@ footer,
   width: fit-content;
 }
 
+.footer-contact p + p {
+  margin-top: 10px;
+}
+
+.footer-contact small {
+  color: #cbd5dc;
+  font-size: 0.95rem;
+}
+
 .footer-legal {
   margin-top: 38px;
   padding-top: 22px;
@@ -4474,6 +4529,12 @@ footer,
 
 #evidence .evidence-grid {
   gap: 16px;
+}
+
+#evidence .evidence-intro-title {
+  margin: -8px 0 22px;
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  letter-spacing: -0.02em;
 }
 
 #evidence .evidence-card {
@@ -5106,6 +5167,59 @@ footer,
   color: var(--muted);
 }
 
+.event-test-entry {
+  padding: 28px 0 34px;
+  background: var(--paper);
+}
+
+.event-test-entry-inner {
+  padding: 24px 28px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 20px;
+  color: var(--white);
+  background:
+    radial-gradient(circle at 8% 30%, rgba(244, 133, 44, 0.16), transparent 28%),
+    #273c48;
+  box-shadow: 0 18px 42px rgba(31, 44, 52, 0.13);
+}
+
+.event-test-entry-kicker {
+  margin: 0;
+  color: #ffd2ad;
+  font-size: 0.94rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.event-test-entry-copy {
+  margin: 0;
+  color: #dbe5e9;
+  line-height: 1.5;
+}
+
+.event-test-entry-copy strong,
+.event-test-entry-copy span {
+  display: block;
+}
+
+.event-test-entry-copy strong {
+  margin-bottom: 2px;
+  color: var(--white);
+  font-size: 1.16rem;
+}
+
+.event-test-entry .btn {
+  min-height: 52px;
+  white-space: nowrap;
+}
+
 @media (max-width: 1060px) {
   .event-hero-grid,
   .event-method-grid,
@@ -5206,6 +5320,24 @@ footer,
   }
 
   .event-decision .btn {
+    width: 100%;
+  }
+
+  .event-test-entry {
+    padding: 20px 0 24px;
+  }
+
+  .event-test-entry-inner {
+    padding: 23px;
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .event-test-entry-kicker {
+    white-space: normal;
+  }
+
+  .event-test-entry .btn {
     width: 100%;
   }
 
@@ -7659,5 +7791,184 @@ body:not(.event-landing) h2 {
     margin-left: 0;
     text-align: left;
     text-wrap: pretty;
+  }
+}
+
+/* Unified reading axis and cause-and-effect sequence.
+   The public-event landing keeps its approved standalone composition. */
+body:not(.event-landing) .section-head,
+body:not(.event-landing) .audience-navigation-head,
+body:not(.event-landing) .model-wrap > :first-child,
+body:not(.event-landing) .response-contrast-copy,
+body:not(.event-landing) .method-section-head,
+body:not(.event-landing) .mentor-section-head,
+body:not(.event-landing) .situations-section-head {
+  width: 100%;
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+  text-align: left;
+}
+
+body:not(.event-landing) .section-head > .eyebrow,
+body:not(.event-landing) .section-head > h2,
+body:not(.event-landing) .section-head > .lead,
+body:not(.event-landing) .section-head > p:not(.eyebrow),
+body:not(.event-landing) .audience-navigation-head > .eyebrow,
+body:not(.event-landing) .audience-navigation-head > h2,
+body:not(.event-landing) .audience-navigation-head > p,
+body:not(.event-landing) .model-wrap > :first-child > .eyebrow,
+body:not(.event-landing) .model-wrap > :first-child > h2,
+body:not(.event-landing) .model-wrap > :first-child > .lead,
+body:not(.event-landing) .model-wrap > :first-child > .small,
+body:not(.event-landing) .response-contrast-copy > .eyebrow,
+body:not(.event-landing) .response-contrast-copy > h2,
+body:not(.event-landing) .response-contrast-copy > .lead,
+body:not(.event-landing) .method-section-head > .eyebrow,
+body:not(.event-landing) .method-section-head > h2,
+body:not(.event-landing) .method-section-head > .lead,
+body:not(.event-landing) .mentor-section-head > .eyebrow,
+body:not(.event-landing) .mentor-section-head > h2,
+body:not(.event-landing) .mentor-section-head > .lead,
+body:not(.event-landing) .situations-section-head > .eyebrow,
+body:not(.event-landing) .situations-section-head > h2,
+body:not(.event-landing) .situations-section-head > .lead,
+body:not(.event-landing) .grid2 > div:first-child > .eyebrow,
+body:not(.event-landing) .grid2 > div:first-child > h2,
+body:not(.event-landing) .grid2 > div:first-child > .lead,
+body:not(.event-landing) .lead-layout > div:first-child > .eyebrow,
+body:not(.event-landing) .lead-layout > div:first-child > h2,
+body:not(.event-landing) .lead-layout > div:first-child > .lead,
+body:not(.event-landing) .section > .wrap:not(.grid2) > .eyebrow:first-child,
+body:not(.event-landing) .section > .wrap:not(.grid2) > .eyebrow:first-child + h2,
+body:not(.event-landing) .section > .wrap:not(.grid2) > .eyebrow:first-child + h2 + .lead {
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+  text-align: left;
+  text-wrap: pretty;
+}
+
+body:not(.event-landing) .section-head > .lead,
+body:not(.event-landing) .section-head > p:not(.eyebrow),
+body:not(.event-landing) .model-wrap > :first-child > .lead,
+body:not(.event-landing) .model-wrap > :first-child > .small,
+body:not(.event-landing) .response-contrast-copy > .lead,
+body:not(.event-landing) .method-section-head > .lead,
+body:not(.event-landing) .mentor-section-head > .lead,
+body:not(.event-landing) .situations-section-head > .lead,
+body:not(.event-landing) .grid2 > div:first-child > .lead,
+body:not(.event-landing) .lead-layout > div:first-child > .lead,
+body:not(.event-landing) .section > .wrap:not(.grid2) > .eyebrow:first-child + h2 + .lead {
+  width: min(100%, 1280px);
+}
+
+/* The second line now reads 04 → 05 → 06, just as the eye expects. */
+.response-model-section .model-step:nth-child(4),
+.section.dark .model-step:nth-child(4),
+.section-dark .model-step:nth-child(4) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.response-model-section .model-step:nth-child(5),
+.section.dark .model-step:nth-child(5),
+.section-dark .model-step:nth-child(5) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.response-model-section .model-step:nth-child(6),
+.section.dark .model-step:nth-child(6),
+.section-dark .model-step:nth-child(6) {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.response-model-section .model-step:nth-child(3)::after,
+.section.dark .model-step:nth-child(3)::after,
+.section-dark .model-step:nth-child(3)::after {
+  display: none;
+}
+
+.response-model-section .model-step:nth-child(4)::after,
+.response-model-section .model-step:nth-child(5)::after,
+.section.dark .model-step:nth-child(4)::after,
+.section.dark .model-step:nth-child(5)::after,
+.section-dark .model-step:nth-child(4)::after,
+.section-dark .model-step:nth-child(5)::after {
+  top: 50%;
+  right: -31px;
+  bottom: auto;
+  left: auto;
+  width: 20px;
+  display: block;
+  content: "→";
+  color: var(--resilium-orange);
+  font-family: Arial, sans-serif;
+  font-size: 1.45rem;
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: none;
+  filter: none;
+  transform: translateY(-50%);
+}
+
+/* Some page templates place the heading and paragraph directly in the step.
+   Assigning explicit grid cells prevents narrow, word-by-word columns. */
+.section.dark .model-step > small,
+.section-dark .model-step > small {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.section.dark .model-step > strong,
+.section-dark .model-step > strong {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.section.dark .model-step > p,
+.section-dark .model-step > p {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+@media (max-width: 960px) {
+  .response-model-section .model-step:nth-child(n),
+  .section.dark .model-step:nth-child(n),
+  .section-dark .model-step:nth-child(n) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .response-model-section .model-step:nth-child(n)::after,
+  .section.dark .model-step:nth-child(n)::after,
+  .section-dark .model-step:nth-child(n)::after {
+    position: absolute;
+    top: auto;
+    right: 50%;
+    bottom: -20px;
+    left: auto;
+    width: 11px;
+    height: 11px;
+    display: block;
+    content: "";
+    border: 0;
+    border-right: 2px solid var(--resilium-orange);
+    border-bottom: 2px solid var(--resilium-orange);
+    background: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    filter: none;
+    transform: translateX(50%) rotate(45deg);
+  }
+
+  .response-model-section .model-step:last-child::after,
+  .section.dark .model-step:last-child::after,
+  .section-dark .model-step:last-child::after {
+    display: none;
   }
 }
