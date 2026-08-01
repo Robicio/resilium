@@ -8,10 +8,25 @@
 }
 
 .home-page .hero h1 {
-  max-width: 1240px;
-  font-size: clamp(2.95rem, 5.65vw, 5.15rem);
+  max-width: 1120px;
+  font-size: clamp(2.95rem, 5.2vw, 4.75rem);
   line-height: 1;
   text-wrap: balance;
+}
+
+.home-page .hero-subheadline {
+  max-width: 1040px;
+  margin: 0 0 26px;
+  color: #f2f4f5;
+  font-size: clamp(1.65rem, 2.45vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.14;
+  text-wrap: balance;
+}
+
+.home-page .hero-subheadline span {
+  color: var(--brand-soft);
 }
 
 .home-page .section-head,
@@ -126,7 +141,11 @@
 
 @media (max-width: 960px) {
   .home-page .hero h1 {
-    font-size: clamp(2.65rem, 8.8vw, 4.2rem);
+    font-size: clamp(2.65rem, 8.4vw, 4rem);
+  }
+
+  .home-page .hero-subheadline {
+    font-size: clamp(1.55rem, 4.8vw, 2.15rem);
   }
 
   .home-page .section-head h2,
@@ -149,6 +168,13 @@
   .home-page .hero h1 {
     font-size: clamp(2.35rem, 10.8vw, 3.15rem);
     line-height: 1.01;
+  }
+
+  .home-page .hero-subheadline {
+    margin-bottom: 22px;
+    font-size: clamp(1.5rem, 7vw, 1.9rem);
+    line-height: 1.16;
+    text-wrap: pretty;
   }
 
   .home-page .audience-navigation,
