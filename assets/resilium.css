@@ -4476,6 +4476,12 @@ footer,
   gap: 16px;
 }
 
+#evidence .evidence-intro-title {
+  margin: -8px 0 22px;
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  letter-spacing: -0.02em;
+}
+
 #evidence .evidence-card {
   min-height: 250px;
   padding: 28px;
