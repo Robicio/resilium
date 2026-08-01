@@ -1246,9 +1246,8 @@
 </select>
 </div>
 <div class="field field-full">
-<label for="situation" id="situationLabel">Jakou situaci potřebujete zvládat lépe? *</label>
-<textarea id="situation" name="situation" placeholder="Například konfliktní klienti, náročné rozhovory manažerů, chyby při časové tísni nebo eskalace v provozu." required=""></textarea>
-<span class="error" data-error-for="situation"></span>
+<label for="situation" id="situationLabel">Jakou situaci potřebujete zvládat lépe? (nepovinné)</label>
+<textarea id="situation" name="situation" placeholder="Například konfliktní klienti, náročné rozhovory manažerů, chyby při časové tísni nebo eskalace v provozu."></textarea>
 </div>
 <div class="field field-full">
 <label class="check">
@@ -1387,7 +1386,7 @@
         situationsHref: "situace.html#firmy",
         formHeadline: "Jakou situaci potřebujete ve své organizaci zvládat lépe?",
         formIntro: "Napište nám stručně, co se ve firmě nebo týmu opakuje. Doporučíme vhodný formát tréninku a ozveme se s návrhem dalšího kroku.",
-        situationLabel: "Jakou situaci potřebujete zvládat lépe? *",
+        situationLabel: "Jakou situaci potřebujete zvládat lépe? (nepovinné)",
         placeholder: "Například konfliktní klienti, náročné rozhovory manažerů, chyby při časové tísni nebo eskalace v provozu.",
         submit: "Chci doporučit vhodný program",
         note: "Odesláním nevzniká objednávka. Nejprve společně ověříme, zda Resilium odpovídá vaší situaci.",
@@ -1408,7 +1407,7 @@
         situationsHref: "situace.html#lidri",
         formHeadline: "Ve které situaci chcete jako lídr reagovat jinak nebo jistěji?",
         formIntro: "Popište krátce situaci, která se ve vaší roli opakuje. Doporučíme individuální nebo firemní formát.",
-        situationLabel: "Kterou situaci chcete jako lídr zvládat lépe? *",
+        situationLabel: "Kterou situaci chcete jako lídr zvládat lépe? (nepovinné)",
         placeholder: "Například konflikt v týmu, náročná zpětná vazba, odpor ke změně, tlak na rychlé rozhodnutí nebo vlastní obrannost.",
         submit: "Chci konzultaci pro lídra",
         note: "Konzultace pomůže určit, zda dává smysl individuální trénink, skupina lídrů nebo program pro celý tým.",
@@ -1429,7 +1428,7 @@
         situationsHref: "situace.html#jednotlivci",
         formHeadline: "V jaké situaci chcete reagovat blíž tomu, jak skutečně chcete?",
         formIntro: "Napište nám stručně, co se vám opakuje. Doporučíme veřejný trénink nebo jinou vhodnou cestu.",
-        situationLabel: "Kterou situaci chcete zvládat jinak? *",
+        situationLabel: "Kterou situaci chcete zvládat jinak? (nepovinné)",
         placeholder: "Například kritika, konflikt, ztráta slov, ústup, prudká reakce, prezentace nebo nastavení hranice.",
         submit: "Chci doporučit vhodný trénink",
         note: "Poptávka je nezávazná. Podle situace doporučíme veřejný termín nebo vhodný formát.",
@@ -1609,11 +1608,6 @@
         valid = false;
       } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
         showError("email", "Zadejte platnou e-mailovou adresu.");
-        valid = false;
-      }
-
-      if (!situation.value.trim()) {
-        showError("situation", "Popište prosím alespoň stručně svou situaci.");
         valid = false;
       }
 
